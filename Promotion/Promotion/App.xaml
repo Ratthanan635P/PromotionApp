@@ -26,5 +26,8 @@
             <Setter Property="Padding" Value="10,0" />
             <Setter Property="CornerRadius" Value="10" />
         </Style>
+        <Style TargetType="NavigationPage">
+            <Setter Property="BarBackgroundColor" Value="Green"/>
+        </Style>
     </Application.Resources>
 </Application>

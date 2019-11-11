@@ -17,7 +17,7 @@ namespace Promotion
 			BaseUri = new Uri ("http://192.168.1.29:30000/");
 			InitializeComponent();
 
-			MainPage = new LoginPage();
+			MainPage = new NavigationPage( new LoginPage());
 		}
 
 		protected override void OnStart()

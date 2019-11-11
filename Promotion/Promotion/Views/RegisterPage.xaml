@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             NavigationPage.HasBackButton="False"
+             x:Class="Promotion.Views.RegisterPage">
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Entry" >
+                <Setter Property="Margin" Value="10,0"/>
+            </Style>
+            <Style TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+                <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="TextColor" Value="{StaticResource P_PrimaryColor}"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <NavigationPage.TitleView>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="30"/>
+            </Grid.ColumnDefinitions>
+            <ImageButton Source="ic_action_left_filled_100px" 
+                         x:Name="backButton" Grid.Column="0"
+                         HorizontalOptions="StartAndExpand" 
+                         Aspect="AspectFit" HeightRequest="50" BackgroundColor="Transparent" 
+                         Clicked="backButton_Clicked"/>
+            <Label Text="Register"  Grid.Column="1"
+                    HorizontalOptions="CenterAndExpand" 
+                    VerticalOptions="Center"
+                     TextColor="White"
+                   FontSize="Large"/>
+        </Grid>
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <StackLayout Margin="30">
+            <StackLayout Spacing="10" VerticalOptions="CenterAndExpand">
+                <!--<Image Source="https://cdn.pixabay.com/photo/2017/01/28/19/06/label-2016248_960_720.png" HeightRequest="150"/>-->
+                <Label  x:Name="errorLabel" TextColor="Red" IsVisible="False"/>
+                <Frame>
+                    <Entry x:Name="EmailEntry" Placeholder="Email"/>
+                </Frame>
+                <Frame>
+                    <Entry x:Name="PasswordEntry" Placeholder="Password"/>
+                </Frame>
+                <Frame>
+                    <Entry x:Name="ConfirmPasswordEntry" Placeholder="ConfirmPassword"/>
+                </Frame>
+                <Button x:Name="RegisterButton" Text="REGISTER"  Clicked="RegisterButton_Clicked"/>
+            </StackLayout>
+            <Label Text="LogIn" Margin="0,0,0,5">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="LogInTap" Tapped="LogInTap_Tapped"/>
+                </Label.GestureRecognizers>
+            </Label>
+        </StackLayout>
+    </ContentPage.Content>
+    
+</ContentPage>
