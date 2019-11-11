@@ -20,7 +20,7 @@
     <ContentPage.Content>
         <StackLayout Margin="30">
             <StackLayout Spacing="10" VerticalOptions="CenterAndExpand">
-                <Image Source="" HeightRequest="150" BackgroundColor="WhiteSmoke"/>
+                <Image Source="https://cdn.pixabay.com/photo/2017/01/28/19/06/label-2016248_960_720.png" HeightRequest="150" BackgroundColor="WhiteSmoke"/>
                 <Label  x:Name="errorLabel" TextColor="Red" IsVisible="False"/>
                 <Frame>
                     <Entry x:Name="EmailEntry" Placeholder="Email"/>

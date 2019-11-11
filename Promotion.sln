@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Promotion.Android", "Promot
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Promotion.iOS", "Promotion\Promotion.iOS\Promotion.iOS.csproj", "{966F31EB-AC4F-49D7-B7AB-68B9092463D9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Promotion", "Promotion\Promotion\Promotion.csproj", "{7C015177-0407-49A8-A125-628136DAE55A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Promotion", "Promotion\Promotion\Promotion.csproj", "{7C015177-0407-49A8-A125-628136DAE55A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -21,7 +21,6 @@ namespace Promotion.Views
 		{
 			InitializeComponent();
 		}
-
 		private async void LoginButton_Clicked(object sender, EventArgs e)
 		{
 			//LogIn
@@ -40,7 +39,8 @@ namespace Promotion.Views
 			HttpClient client = new HttpClient();
 			try
 			{
-				Uri url = new Uri( App.BaseUri, "/api/LogIn");
+				//Uri url = new Uri( App.BaseUri, "/api/LogIn");
+				Uri url = new Uri( App.BaseUri, "api/Promotion");
 				
 				LoginCommand logincommand = new LoginCommand()
 				{
@@ -49,7 +49,8 @@ namespace Promotion.Views
 				};
 				var json = JsonConvert.SerializeObject(logincommand);
 				HttpContent content = new StringContent(json, Encoding.UTF8, "application/json");
-				var result = await client.PostAsync(url, content);
+				//var result = await client.PostAsync(url, content);
+				var result = await client.GetAsync(url);
 				if (result.IsSuccessStatusCode)
 				{
 					//Navigation HomePage
