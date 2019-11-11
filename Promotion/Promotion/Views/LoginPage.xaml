@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Promotion.Views.LoginPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Entry" >
+                <Setter Property="Margin" Value="10,0"/>
+            </Style>
+            <Style TargetType="Label">
+            <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+            <Setter Property="FontSize" Value="Medium" />
+            <Setter Property="TextColor" Value="{StaticResource P_PrimaryColor}"/>
+        </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout Margin="30">
+            <StackLayout Spacing="10" VerticalOptions="CenterAndExpand">
+                <Image Source="" HeightRequest="150" BackgroundColor="WhiteSmoke"/>
+                <Label  x:Name="errorLabel" TextColor="Red" IsVisible="False"/>
+                <Frame>
+                    <Entry x:Name="EmailEntry" Placeholder="Email"/>
+                </Frame>
+                <Frame>
+                    <Entry x:Name="PasswordEntry" Placeholder="Password"/>
+                </Frame>
+                <Button x:Name="LoginButton" Text="LOG IN"  Clicked="LoginButton_Clicked"/>
+                <Label  Text="Forgot password?" >
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="ForgotTap" Tapped="ForgotTap_Tapped"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+            <Label Text="Register" Margin="0,0,0,5">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="RegisterTap" Tapped="RegisterTap_Tapped"/>
+                </Label.GestureRecognizers>
+            </Label>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

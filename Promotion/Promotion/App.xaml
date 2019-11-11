@@ -6,6 +6,25 @@
              mc:Ignorable="d"
              x:Class="Promotion.App">
     <Application.Resources>
-
+        <Color x:Key="P_PrimaryColor">#009829</Color>
+        <Color x:Key="P_TextButtonColor">#FFFFFF</Color>
+        <Style TargetType="Button">
+            <Setter Property="BackgroundColor" Value="{StaticResource P_PrimaryColor}"/>
+            <Setter Property="CornerRadius" Value="10" />
+            <Setter Property="HeightRequest" Value="60" />
+            <Setter Property="TextColor" Value="{StaticResource P_TextButtonColor}" />
+            <Setter Property="FontSize" Value="Large" />
+        </Style>
+        <Style TargetType="Entry">
+            <Setter Property="HeightRequest" Value="60" />
+            <Setter Property="BackgroundColor" Value="Transparent" />
+            <Setter Property="PlaceholderColor" Value="Silver" />
+            <Setter Property="TextColor" Value="Black" />
+            <Setter Property="FontSize" Value="Large"/>
+        </Style>
+        <Style TargetType="Frame">
+            <Setter Property="Padding" Value="10,0" />
+            <Setter Property="CornerRadius" Value="10" />
+        </Style>
     </Application.Resources>
 </Application>
