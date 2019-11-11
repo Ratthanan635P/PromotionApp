@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             NavigationPage.HasBackButton="False"
+             x:Class="Promotion.Views.PromotionsPage">
+    <NavigationPage.TitleView>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="30"/>
+            </Grid.ColumnDefinitions>
+            <ImageButton Source="ic_action_left_filled_100px" 
+                         x:Name="backButton" Grid.Column="0"
+                         HorizontalOptions="FillAndExpand" 
+                         Aspect="AspectFit" HeightRequest="50" BackgroundColor="Transparent" 
+                         Clicked="backButton_Clicked"/>
+            <Label Text="Promotions"  Grid.Column="1"
+                    HorizontalOptions="CenterAndExpand" 
+                    VerticalOptions="Center"
+                     TextColor="White"
+                     FontSize="Large"/>
+            <!--<ImageButton Source="ic_action_ingredients_list_100px" 
+                         x:Name="historyButton" Grid.Column="2"
+                         HorizontalOptions="FillAndExpand" 
+                         Aspect="AspectFit" HeightRequest="50" BackgroundColor="Transparent" 
+                         Clicked="historyButton_Clicked"/>-->
+        </Grid>
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <StackLayout Padding="15,15">
+            <ScrollView>
+                <StackLayout Padding="10,10" Spacing="15">
+                    <Frame>
+                        <StackLayout Orientation="Horizontal" Spacing="10" >
+                            <Image Source= ""    
+                           HeightRequest="100" WidthRequest="100"
+                           BackgroundColor="Blue" 
+                         
+                           />
+                            <StackLayout>
+                                <Label Text="Promotion Name"
+                               FontSize="Medium"/>
+
+                                <StackLayout HeightRequest="50">
+                                    <ScrollView>
+                                        <Label FontSize="Micro" Text="Shop 2,000 Baht or more on Disney fashion items and get 50% off instantly. or register to get an instant 1,000-Baht on select Disney collections of watches and Thai merchandise at Member Service Counter (terms and conditions apply)*. 1 November 2019 – 5 January 2020 or while stocks last. King Power Rangnam, Mahanakhon, Srivaree, Pattaya and Phuket"/>
+                                    </ScrollView>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Exp." TextColor="Red"/>
+                                    <Label Text="20/11/2019" TextColor="Red"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
+
+                    <Frame>
+                        <StackLayout Orientation="Horizontal" Spacing="10" >
+                            <Image Source= ""    
+                           HeightRequest="100" WidthRequest="100"
+                           BackgroundColor="Blue"                          
+                           />
+                            <StackLayout>
+                                <Label Text="Promotion Name"
+                               FontSize="Medium"/>
+
+                                <StackLayout HeightRequest="50">
+                                    <ScrollView>
+                                        <Label FontSize="Micro" Text="Shop 2,000 Baht or more on Disney fashion items and get 50% off instantly. or register to get an instant 1,000-Baht on select Disney collections of watches and Thai merchandise at Member Service Counter (terms and conditions apply)*. 1 November 2019 – 5 January 2020 or while stocks last. King Power Rangnam, Mahanakhon, Srivaree, Pattaya and Phuket"/>
+                                    </ScrollView>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Exp." TextColor="Red"/>
+                                    <Label Text="20/11/2019" TextColor="Red"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+            </ScrollView>
+            <!--<Button Text="GET PROMOTION" 
+                    VerticalOptions="EndAndExpand"
+                    FontSize="Medium"
+                    HeightRequest="50"/>-->
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

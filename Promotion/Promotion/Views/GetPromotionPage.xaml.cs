@@ -10,16 +10,11 @@ using Xamarin.Forms.Xaml;
 namespace Promotion.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class HomePage : ContentPage
+	public partial class GetPromotionPage : ContentPage
 	{
-		public HomePage()
+		public GetPromotionPage()
 		{
 			InitializeComponent();
-		}
-
-		private async void historyButton_Clicked(object sender, EventArgs e)
-		{
-			 await Navigation.PushAsync(new HistoryPage());
 		}
 
 		private async void backButton_Clicked(object sender, EventArgs e)
@@ -27,9 +22,9 @@ namespace Promotion.Views
 			await Navigation.PopAsync();
 		}
 
-		private async void CmdViewPromotions_Clicked(object sender, EventArgs e)
+		private void CmdViewPromotions_Clicked(object sender, EventArgs e)
 		{
-			await Navigation.PushAsync(new PromotionsPage());
+
 		}
 	}
 }
