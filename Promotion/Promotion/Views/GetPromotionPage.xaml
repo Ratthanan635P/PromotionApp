@@ -36,7 +36,7 @@
                     </Grid.RowDefinitions>
 
 
-                    <Image Source="https://cdn.pixabay.com/photo/2017/01/28/19/06/label-2016248_960_720.png"
+                    <Image x:Name="LogoImage"
                 BackgroundColor="AliceBlue"
                          Aspect="Fill"
                            Grid.Row="0"/>
@@ -46,9 +46,9 @@
                     <StackLayout Padding="15,15"                          
                              Grid.Row="2">
                         <StackLayout>
-                            <Label Text="Promotion Name"
+                            <Label x:Name="Lb_Title" Text="Promotion Name"
                                FontSize="Medium"/>
-                            <Label FontSize="Small" Text="Shop 2,000 Baht or more on Disney fashion items and get 50% off instantly. or register to get an instant 1,000-Baht on select Disney collections of watches and Thai merchandise at Member Service Counter (terms and conditions apply)*. 1 November 2019 – 5 January 2020 or while stocks last. King Power Rangnam, Mahanakhon, Srivaree, Pattaya and Phuket"/>
+                            <Label x:Name="Lb_Detail" FontSize="Small" Text=""/>
                         </StackLayout>
 
                     </StackLayout>
@@ -56,11 +56,11 @@
             </ScrollView>
             <StackLayout VerticalOptions="EndAndExpand"
                          Padding="15,15">
-            <StackLayout Orientation="Horizontal" Padding="10">
-                <Label Text="Exp." TextColor="Red"/>
-                <Label Text="20/11/2019" TextColor="Red"/>
-            </StackLayout>
-            <Button 
+                <StackLayout Orientation="Horizontal" Padding="10">
+                    <Label Text="Exp." TextColor="Red"/>
+                    <Label x:Name="Lb_Expire" Text="20/11/2019" TextColor="Red"/>
+                </StackLayout>
+                <Button 
                     x:Name="CmdAddMyPromotions"
                     Text="GET PROMOTION" 
                     VerticalOptions="EndAndExpand"

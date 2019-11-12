@@ -23,67 +23,64 @@ namespace Promotion.Views
 		}
 		private async void LoginButton_Clicked(object sender, EventArgs e)
 		{
-			await Navigation.PushAsync(new HomePage());
-			////LogIn
-			//var email = EmailEntry.Text;
-			//var password = PasswordEntry.Text;
-			//if (string.IsNullOrEmpty(email))//&& IsValidate Email Format
-			//{
-			//	errorLabel.Text = "Please Enter your email";
-			//	errorLabel.IsVisible = true;
-			//}
-			////if (string.IsNullOrEmpty(email))//&& IsValidate Email Format
-			////{
-			////	errorLabel.Text = "Invalid Email Error";
-			////	errorLabel.IsVisible = true;
-			////}
-			//HttpClient client = new HttpClient();
-			//try
-			//{
-			//	//Uri url = new Uri( App.BaseUri, "/api/LogIn");
-			//	Uri url = new Uri( App.BaseUri, "api/Promotion");
+			//LogIn
+			var email = EmailEntry.Text;
+			var password = PasswordEntry.Text;
+			errorLabel.IsVisible = false;
+			if (string.IsNullOrEmpty(email))//&& IsValidate Email Format
+			{
+				errorLabel.Text = "Please Enter your email";
+				errorLabel.IsVisible = true;
+			}
 
-			//	LoginCommand logincommand = new LoginCommand()
-			//	{
-			//		Email = "test@test.com", //email,
-			//		Password = "12345678"//password
-			//	};
-			//	var json = JsonConvert.SerializeObject(logincommand);
-			//	HttpContent content = new StringContent(json, Encoding.UTF8, "application/json");
-			//	//var result = await client.PostAsync(url, content);
-			//	var result = await client.GetAsync(url);
-			//	if (result.IsSuccessStatusCode)
-			//	{
-			//		//Navigation HomePage
-			//		var stringContent = await result.Content.ReadAsStringAsync();
-			//		var data = JsonConvert.DeserializeObject(stringContent);
-			//	}
-			//	else
-			//	{
-			//		errorLabel.Text = "";
-			//		errorLabel.IsVisible = true;
-			//	}
-			//}
-			//catch (Exception ex)
-			//{
-			//	errorLabel.Text = "";
-			//	errorLabel.IsVisible = true;
-			//	// DisplayAlert("Error",ex.Message,"OK");
-			//}
-			//finally
-			//{
-			//	//
-			//	client.Dispose();
-			//}
+			if (string.IsNullOrEmpty(password))//&& IsValidate Email Format
+			{
+				errorLabel.Text = "Please Enter your password";
+				errorLabel.IsVisible = true;
+			}
+			if (errorLabel.IsVisible == false)
+			{
+				Uri url = new Uri(App.BaseUri, "api/User/Login");
+				LoginCommand loginCommand = new LoginCommand()
+				{
+					Email = email,
+					Password = password
+				};
 
+				string json = JsonConvert.SerializeObject(loginCommand);
+
+				try
+				{
+					HttpResponseMessage result;
+					HttpContent content = new StringContent(json, Encoding.UTF8, "application/json");
+					using (HttpClient client = new HttpClient())
+					{
+						result = await client.PostAsync(url, content);
+					}
+					if (result.IsSuccessStatusCode)
+					{
+						//Navigate to Home page
+						var stringContent = await result.Content.ReadAsStringAsync();
+						//App.UserId = 1;
+						App.UserId = JsonConvert.DeserializeObject<int>(stringContent);
+						await Navigation.PushAsync(new HomePage(App.UserId));
+					}
+					else
+					{
+						errorLabel.Text = "Email or Password is wrong!";
+						errorLabel.IsVisible = true;
+					}
+				}
+				catch (Exception ex)
+				{
+					errorLabel.Text = ex.Message;
+					errorLabel.IsVisible = true;
+				}
+			}
 		}
 
 		private async void RegisterTap_Tapped(object sender, EventArgs e)
 		{
-			//Navigation page Register
-			//Task.Delay(5000);
-			//string data = Task.Run(MyFunction).Result;
-			//DisplayAlert("","Done","Ok");
 			await Navigation.PushAsync(new RegisterPage());
 		}
 		private string MyFunction()

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Promotion.Models
 {
-	public class MyPromotionViewModel
+	public class DetailPromotionViewModel
 	{
 		public int Id { get; set; }
 		public string Image { get; set; }

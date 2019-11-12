@@ -8,6 +8,7 @@ namespace Promotion
 	public partial class App : Application
 	{
 		public static Uri BaseUri { get; private set; }
+		public static int UserId { get; set; }
 		public App()
 		{
               
