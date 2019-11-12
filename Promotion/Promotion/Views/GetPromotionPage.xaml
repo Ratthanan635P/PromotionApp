@@ -27,33 +27,24 @@
     </NavigationPage.TitleView>
     <ContentPage.Content>
         <StackLayout Spacing="0">
-            <ScrollView>
-                <Grid RowSpacing="0">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="1"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
+            <Image x:Name="LogoImage"
+                         Aspect="AspectFit"
+                           />
 
+                    <BoxView BackgroundColor="Gray" HeightRequest="1"/>
 
-                    <Image x:Name="LogoImage"
-                BackgroundColor="AliceBlue"
-                         Aspect="Fill"
-                           Grid.Row="0"/>
+            <StackLayout Padding="15,15"  >
 
-                    <BoxView BackgroundColor="Gray" HeightRequest="1" Grid.Row="1"/>
-
-                    <StackLayout Padding="15,15"                          
-                             Grid.Row="2">
-                        <StackLayout>
-                            <Label x:Name="Lb_Title" Text="Promotion Name"
+                <StackLayout>
+                    <Label x:Name="Lb_Title" Text="Promotion Name"
                                FontSize="Medium"/>
-                            <Label x:Name="Lb_Detail" FontSize="Small" Text=""/>
-                        </StackLayout>
-
-                    </StackLayout>
-                </Grid>
-            </ScrollView>
+                    <ScrollView>
+                        <Label x:Name="Lb_Detail" FontSize="Small" Text=""/>
+                    </ScrollView>
+                </StackLayout>
+            </StackLayout>
+       
+           
             <StackLayout VerticalOptions="EndAndExpand"
                          Padding="15,15">
                 <StackLayout Orientation="Horizontal" Padding="10">

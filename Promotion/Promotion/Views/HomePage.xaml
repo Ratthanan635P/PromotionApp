@@ -46,9 +46,9 @@
                                 <StackLayout Orientation="Horizontal" >
                                     <Image Source= "{Binding Image}" 
                                            HorizontalOptions="StartAndExpand"
-                                         HeightRequest="100" WidthRequest="120"
-                                            BackgroundColor="Blue"
-                                           Aspect="AspectFill"
+                                         HeightRequest="120" WidthRequest="150"
+                                            
+                                           Aspect="AspectFit"
                                          />
                                     <StackLayout>
                                         <Label Text="Promotion name"

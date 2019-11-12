@@ -44,12 +44,13 @@
                         <DataTemplate>
                             <ViewCell>
                                 <!--<TextCell Text="{Binding DisplayName}" />-->
-                                <Frame Margin="0,10">
+                                <Frame Margin="5, 5" IsClippedToBounds="True" Padding="0">
+
                                     <StackLayout Orientation="Horizontal" Spacing="10" >
                                         <Image Source= "{Binding Image}"    
-                                         HeightRequest="100" WidthRequest="120"
-                                            BackgroundColor="Blue"
-                                           Aspect="AspectFill"
+                                         HeightRequest="120" WidthRequest="150"
+                                            
+                                           Aspect="AspectFit"
                                          />
                                         <StackLayout>
                                             <Label Text="Promotion name"

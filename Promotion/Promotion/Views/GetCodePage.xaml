@@ -37,8 +37,7 @@
 
 
                     <Image x:Name="LogoImage"
-                BackgroundColor="AliceBlue"
-                         Aspect="Fill"
+                         Aspect="AspectFill"
                            Grid.Row="0"/>
 
                     <BoxView BackgroundColor="Gray" HeightRequest="1" Grid.Row="1"/>
