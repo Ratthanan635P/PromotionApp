@@ -38,13 +38,11 @@
                         <StackLayout Orientation="Horizontal" Spacing="10" >
                             <Image Source= ""    
                            HeightRequest="100" WidthRequest="100"
-                           BackgroundColor="Blue" 
-                         
+                           BackgroundColor="Blue"                        
                            />
                             <StackLayout>
                                 <Label Text="Promotion Name"
                                FontSize="Medium"/>
-
                                 <StackLayout HeightRequest="50">
                                     <ScrollView>
                                         <Label FontSize="Micro" Text="Shop 2,000 Baht or more on Disney fashion items and get 50% off instantly. or register to get an instant 1,000-Baht on select Disney collections of watches and Thai merchandise at Member Service Counter (terms and conditions apply)*. 1 November 2019 – 5 January 2020 or while stocks last. King Power Rangnam, Mahanakhon, Srivaree, Pattaya and Phuket"/>
@@ -56,6 +54,9 @@
                                 </StackLayout>
                             </StackLayout>
                         </StackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer x:Name="DetailPromotion" Tapped="DetailPromotion_Tapped" />
+                        </Frame.GestureRecognizers>
                     </Frame>
 
                     <Frame>

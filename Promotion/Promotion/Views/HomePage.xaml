@@ -52,6 +52,9 @@
                         </StackLayout>
                     </StackLayout>
                 </StackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer x:Name="FrameGetCode" Tapped="FrameGetCode_Tapped"/>
+                        </Frame.GestureRecognizers>
             </Frame>
 
             <Frame>

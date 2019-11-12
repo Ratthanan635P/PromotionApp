@@ -31,5 +31,10 @@ namespace Promotion.Views
 		{
 			await Navigation.PushAsync(new PromotionsPage());
 		}
+
+		private async void FrameGetCode_Tapped(object sender, EventArgs e)
+		{
+			await Navigation.PushAsync(new GetCodePage());
+		}
 	}
 }

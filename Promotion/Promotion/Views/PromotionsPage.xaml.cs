@@ -21,5 +21,10 @@ namespace Promotion.Views
 		{
 			await Navigation.PopAsync();
 		}
+
+		private async void DetailPromotion_Tapped(object sender, EventArgs e)
+		{
+		   await Navigation.PushAsync(new GetPromotionPage());
+		}
 	}
 }

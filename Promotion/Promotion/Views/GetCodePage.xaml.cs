@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Promotion.Views.PopUp;
+using Rg.Plugins.Popup.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,9 +12,9 @@ using Xamarin.Forms.Xaml;
 namespace Promotion.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class GetPromotionPage : ContentPage
+	public partial class GetCodePage : ContentPage
 	{
-		public GetPromotionPage()
+		public GetCodePage()
 		{
 			InitializeComponent();
 		}
@@ -22,10 +24,10 @@ namespace Promotion.Views
 			await Navigation.PopAsync();
 		}
 
-		private async void CmdAddMyPromotions_Clicked(object sender, EventArgs e)
+		private async void CmdGetCodePromotion_Clicked(object sender, EventArgs e)
 		{
-			await Navigation.PushAsync(new HomePage());
-
+			await PopupNavigation.Instance.PushAsync(new GetCodePromotionPopUp());
 		}
+
 	}
 }

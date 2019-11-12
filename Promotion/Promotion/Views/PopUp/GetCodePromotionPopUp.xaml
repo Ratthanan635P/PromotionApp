@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
     xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
-   x:Class="Promotion.Views.PopUp.ForgotPasswordPopUp">
+   x:Class="Promotion.Views.PopUp.GetCodePromotionPopUp">
     <!--You can set an animation in the xaml file or in the csharp code behind-->
     <pages:PopupPage.Animation>
         <animations:ScaleAnimation 
@@ -20,25 +20,17 @@
     </pages:PopupPage.Animation>
     <!--You can use any elements here which are extended from Xamarin.Forms.View-->
     <StackLayout 
-        VerticalOptions="Center" 
+        VerticalOptions="EndAndExpand" 
         HorizontalOptions="Center" 
         >
         <Frame Padding="20,20,20,20">
             <StackLayout>
-            <Label  TextColor="{StaticResource P_PrimaryColor}" Text="Enter your email to receive password"/>
-            <Frame>
-                <Entry x:Name="EmailEntry" 
-                       Placeholder="Email"/>
-            </Frame>
-            <Button x:Name="ForgotPasswordButton" Text="Send password" Clicked="ForgotPasswordButton_Clicked"/>
-            <Label TextColor="Red" Margin="0,20,0,0" 
+               
+                <Label TextColor="Green" Margin="0,20,0,0" 
                    VerticalOptions="EndAndExpand"
                    HorizontalOptions="CenterAndExpand"
-                   Text="Cancel" >
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
-                    </Label.GestureRecognizers>
-            </Label>
+                   Text="Test" />
+                    <Button x:Name="BackButton" Text="Back" Clicked="BackButton_Clicked"/>
             </StackLayout>
         </Frame>
     </StackLayout>

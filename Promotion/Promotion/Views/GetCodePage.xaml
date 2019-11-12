@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              NavigationPage.HasBackButton="False"
-             x:Class="Promotion.Views.GetPromotionPage">
+             x:Class="Promotion.Views.GetCodePage">
     <NavigationPage.TitleView>
         <Grid>
             <Grid.ColumnDefinitions>
@@ -56,17 +56,17 @@
             </ScrollView>
             <StackLayout VerticalOptions="EndAndExpand"
                          Padding="15,15">
-            <StackLayout Orientation="Horizontal" Padding="10">
-                <Label Text="Exp." TextColor="Red"/>
-                <Label Text="20/11/2019" TextColor="Red"/>
-            </StackLayout>
-            <Button 
-                    x:Name="CmdAddMyPromotions"
-                    Text="GET PROMOTION" 
+                <StackLayout Orientation="Horizontal" Padding="10">
+                    <Label Text="Exp." TextColor="Red"/>
+                    <Label Text="20/11/2019" TextColor="Red"/>
+                </StackLayout>
+                <Button 
+                    x:Name="CmdGetCodePromotion"
+                    Text="GET CODE" 
                     VerticalOptions="EndAndExpand"
                     FontSize="Medium"
                     HeightRequest="50"
-                    Clicked="CmdAddMyPromotions_Clicked"/>
+                    Clicked="CmdGetCodePromotion_Clicked"/>
             </StackLayout>
         </StackLayout>
 
