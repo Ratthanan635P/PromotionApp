@@ -89,9 +89,6 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\circle-cropped.png" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Promotion\Promotion.csproj">
       <Project>{9AE12139-9FB1-4C92-A43D-6FC782ADB49D}</Project>
       <Name>Promotion</Name>
@@ -128,7 +125,7 @@
     <AndroidResource Include="Resources\drawable-mdpi\ic_action_left_filled_100px.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\label_Sale.png" />
+    <AndroidResource Include="Resources\drawable\circle_Sale.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

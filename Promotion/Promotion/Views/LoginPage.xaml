@@ -22,7 +22,7 @@
     <ContentPage.Content>
         <StackLayout Margin="30">
             <StackLayout Spacing="10" VerticalOptions="CenterAndExpand">
-                <Image Source="circle-cropped" HeightRequest="150"/>
+                <Image Source="circle_Sale" HeightRequest="150"/>
                 <Label  x:Name="errorLabel" TextColor="Red" IsVisible="False"/>
                 <Frame>
                     <Entry x:Name="EmailEntry" Placeholder="Email"/>
