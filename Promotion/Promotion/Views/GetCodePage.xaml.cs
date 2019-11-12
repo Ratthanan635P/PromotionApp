@@ -17,6 +17,8 @@ namespace Promotion.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class GetCodePage : ContentPage
 	{
+		private UpdateCommand dataGetCode;
+		private string codePromotion;
 		public GetCodePage()
 		{
 			InitializeComponent();
@@ -24,6 +26,7 @@ namespace Promotion.Views
 		public GetCodePage(UpdateCommand data)
 		{
 			InitializeComponent();
+			dataGetCode = data;
 			GetDetailPromotion(data);
 		}
 		public async void GetDetailPromotion(UpdateCommand data)
@@ -77,11 +80,59 @@ namespace Promotion.Views
 		{
 			await Navigation.PopAsync();
 		}
-
 		private async void CmdGetCodePromotion_Clicked(object sender, EventArgs e)
 		{
-			await PopupNavigation.Instance.PushAsync(new GetCodePromotionPopUp());
+			GetCode(dataGetCode);
+			await PopupNavigation.Instance.PushAsync(new GetCodePromotionPopUp(codePromotion));
 		}
+
+		//private void CmdAddMyPromotions_Clicked(object sender, EventArgs e)
+		//{
+		//	// call api add mypromotion
+		//	UpdateCommand data = new UpdateCommand()
+		//	{
+		//		UserId = App.UserId,
+		//		PromotionId = promotionDetail.Id
+		//	};
+		//	AddMyPromotion(data);
+		//}
+		public async void GetCode(UpdateCommand data)
+		{
+			Uri url = new Uri(App.BaseUri, "api/UserPromotion/GetCode");
+
+			try
+			{
+				HttpResponseMessage result;
+				var json = JsonConvert.SerializeObject(data);
+				HttpContent content = new StringContent(json, Encoding.UTF8, "application/json");
+				using (HttpClient client = new HttpClient())
+				{
+					result = await client.PostAsync(url, content);
+				}
+				if (result.IsSuccessStatusCode)
+				{
+
+					var stringContent = await result.Content.ReadAsStringAsync();
+					//App.UserId = 1;
+					 string code = JsonConvert.DeserializeObject<string>(stringContent);
+					codePromotion = code;
+					//await Navigation.PushAsync(new HomePage(App.UserId));
+				}
+				else
+				{
+					//errorLabel.Text = "Email or Password is wrong!";
+					//errorLabel.IsVisible = true;				
+				}
+			}
+			catch (Exception ex)
+			{
+				//errorLabel.Text = ex.Message;
+				//errorLabel.IsVisible = true;
+				
+			}
+			
+		}
+
 
 	}
 }

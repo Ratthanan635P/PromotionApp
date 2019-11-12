@@ -72,8 +72,14 @@ namespace Promotion.Views
 				UserId = App.UserId,
               PromotionId=dataSelect.Id
              };
+			//MyHistory.SelectedItem = 0;
 			await Navigation.PushAsync(new GetCodePage(data));
 		}
-		
+		protected override void OnAppearing()
+		{
+			//MyHistory.SelectedItem;
+			base.OnAppearing();
+		}
+
 	}
 }

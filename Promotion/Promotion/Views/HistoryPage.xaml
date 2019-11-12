@@ -17,7 +17,8 @@
             <ImageButton Source="ic_action_left_filled_100px" 
                          x:Name="backButton" Grid.Column="0"
                          HorizontalOptions="FillAndExpand" 
-                         Aspect="AspectFit" HeightRequest="50" BackgroundColor="Transparent" 
+                         Aspect="AspectFit" HeightRequest="50" 
+                         BackgroundColor="Transparent" 
                          Clicked="backButton_Clicked"/>
             <Label Text="History"  Grid.Column="1"
                     HorizontalOptions="CenterAndExpand" 
@@ -44,11 +45,11 @@
                         <DataTemplate>
                             <ViewCell>
                                 <!--<TextCell Text="{Binding DisplayName}" />-->
-                                <Frame Margin="0,10">
+                                <Frame Margin="0,10" Padding="0">
                                     <StackLayout Orientation="Horizontal" Spacing="10" >
                                         <Image Source= "{Binding Image}"    
                                          HeightRequest="100" WidthRequest="120"
-                                            BackgroundColor="Blue"
+                                            BackgroundColor="Blue"                                              
                                            Aspect="AspectFill"
                                          />
                                         <StackLayout>

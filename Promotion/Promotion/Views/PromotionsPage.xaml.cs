@@ -72,13 +72,19 @@ namespace Promotion.Views
 
 		private async void ListPromotion_ItemSelected(object sender, SelectedItemChangedEventArgs e)
 		{
-			var dataSelect = e.SelectedItem as MyPromotionViewModel;
+			var dataSelect = e.SelectedItem as PromotionProductViewModel;
 			UpdateCommand data = new UpdateCommand()
 			{
 				UserId = App.UserId,
 				PromotionId = dataSelect.Id
 			};
+			//ListPromotion.SelectedItem = 0;
 			await Navigation.PushAsync(new GetPromotionPage(data));
+		}
+		protected override void OnAppearing()
+		{
+			//ListPromotion.SelectedItem = 0;
+			base.OnAppearing();
 		}
 	}
 }

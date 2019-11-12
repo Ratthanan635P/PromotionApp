@@ -17,7 +17,11 @@ namespace Promotion.Views.PopUp
 		{
 			InitializeComponent();
 		}
+		public GetCodePromotionPopUp(string code)
+		{
+			InitializeComponent();
 
+		}
 		private async void BackButton_Clicked(object sender, EventArgs e)
 		{
 			await PopupNavigation.Instance.PopAsync();

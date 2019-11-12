@@ -20,26 +20,26 @@ namespace Promotion.Views
 		public HomePage()
 		{
 			InitializeComponent();
-			myPromotion = new List<MyPromotionViewModel>();
+			//myPromotion = new List<MyPromotionViewModel>();
 
-			myPromotion.Add(new MyPromotionViewModel()
-			{
-				Id = 1,
-				Title = "sadasd",
-				Expire = DateTime.Today,
-				Image = "https://cdn.pixabay.com/photo/2017/01/28/19/06/label-2016248_960_720.png",
-				//History=false
+			//myPromotion.Add(new MyPromotionViewModel()
+			//{
+			//	Id = 1,
+			//	Title = "sadasd",
+			//	Expire = DateTime.Today,
+			//	Image = "https://cdn.pixabay.com/photo/2017/01/28/19/06/label-2016248_960_720.png",
+			//	//History=false
 
-			});
-			myPromotion.Add(new MyPromotionViewModel()
-			{
-				Id = 2,
-				Title = "sadasdgfgfgfg",
-				Expire = DateTime.Today,
-				Image = "https://cdn.pixabay.com/photo/2017/01/28/19/06/label-2016248_960_720.png",
-				//History = false
-			});
-			MyPromotion.ItemsSource = myPromotion;
+			//});
+			//myPromotion.Add(new MyPromotionViewModel()
+			//{
+			//	Id = 2,
+			//	Title = "sadasdgfgfgfg",
+			//	Expire = DateTime.Today,
+			//	Image = "https://cdn.pixabay.com/photo/2017/01/28/19/06/label-2016248_960_720.png",
+			//	//History = false
+			//});
+			//MyPromotion.ItemsSource = myPromotion;
 		}
 		public HomePage(int userId)
 		{
@@ -49,6 +49,7 @@ namespace Promotion.Views
 		}
 		protected override void OnAppearing()
 		{
+			//MyPromotion.SelectedItem = 0;
 			base.OnAppearing();
 		}
 		         
@@ -70,6 +71,10 @@ namespace Promotion.Views
 					var stringContent = await result.Content.ReadAsStringAsync();
 					//App.UserId = 1;
 					listMyPromotion = JsonConvert.DeserializeObject<List<MyPromotionViewModel>>(stringContent);
+					//var gg = listMyPromotion.Select(o=> new MyPromotionViewModel()
+					//{
+					//	Expire = o.Expire.ToString("dd/MM/yyyy")
+					//}).ToList();
 					MyPromotion.ItemsSource = listMyPromotion;
 				}
 				else
@@ -96,10 +101,6 @@ namespace Promotion.Views
 
 		private async void CmdViewPromotions_Clicked(object sender, EventArgs e)
 		{
-
-
-
-
 			await Navigation.PushAsync(new PromotionsPage(App.UserId));
 		}
 
@@ -116,6 +117,7 @@ namespace Promotion.Views
 				UserId = App.UserId,
 				PromotionId = dataSelect.Id
 			};
+			//MyPromotion.SelectedItem = 0;
 			await Navigation.PushAsync(new GetCodePage(data));
 		}
 	}

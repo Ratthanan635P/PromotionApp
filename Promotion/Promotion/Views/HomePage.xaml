@@ -36,14 +36,16 @@
                           SeparatorVisibility="None" 
                           SeparatorColor="Silver" 
                           Opacity="10" 
+                          
                           ItemSelected="MyPromotion_ItemSelected">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <ViewCell>
+                            <ViewCell >
                             <!--<TextCell Text="{Binding DisplayName}" />-->
-                            <Frame Margin="0,10">
-                                <StackLayout Orientation="Horizontal" Spacing="10" >
-                                    <Image Source= "{Binding Image}"    
+                                <Frame Margin="5, 5" IsClippedToBounds="True" Padding="0">
+                                <StackLayout Orientation="Horizontal" >
+                                    <Image Source= "{Binding Image}" 
+                                           HorizontalOptions="StartAndExpand"
                                          HeightRequest="100" WidthRequest="120"
                                             BackgroundColor="Blue"
                                            Aspect="AspectFill"

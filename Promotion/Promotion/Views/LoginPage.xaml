@@ -25,10 +25,10 @@
                 <Image Source="circle_Sale" HeightRequest="150"/>
                 <Label  x:Name="errorLabel" TextColor="Red" IsVisible="False"/>
                 <Frame>
-                    <Entry x:Name="EmailEntry" Placeholder="Email"/>
+                    <Entry x:Name="EmailEntry" Placeholder="Email" Text="test@test.test"/>
                 </Frame>
                 <Frame>
-                    <Entry x:Name="PasswordEntry" Placeholder="Password" IsPassword="True"/>
+                    <Entry x:Name="PasswordEntry" Placeholder="Password" Text="12345678" IsPassword="True"/>
                 </Frame>
                 <Button x:Name="LoginButton" Text="LOG IN"  Clicked="LoginButton_Clicked"/>
                 <Label  Text="Forgot password?" >
