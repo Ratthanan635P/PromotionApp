@@ -8,6 +8,7 @@
     <Application.Resources>
         <Color x:Key="P_PrimaryColor">#009829</Color>
         <Color x:Key="P_TextButtonColor">#FFFFFF</Color>
+        <Color x:Key="P_PrimaryBackground">#F5FFF8</Color>
         <Style TargetType="Button">
             <Setter Property="BackgroundColor" Value="{StaticResource P_PrimaryColor}"/>
             <Setter Property="CornerRadius" Value="10" />

@@ -20,17 +20,19 @@
     </pages:PopupPage.Animation>
     <!--You can use any elements here which are extended from Xamarin.Forms.View-->
     <StackLayout 
-        VerticalOptions="EndAndExpand" 
-        HorizontalOptions="Center" 
+        VerticalOptions="EndAndExpand"        
         >
         <Frame Padding="20,20,20,20">
-            <StackLayout>
+            <StackLayout Spacing="40" Padding="10,20,10,20">
                
-                <Label TextColor="Green" Margin="0,20,0,0" 
+                <Label TextColor="Green" Margin="0,20,0,20" 
                    VerticalOptions="EndAndExpand"
                    HorizontalOptions="CenterAndExpand"
-                   Text="Test" />
-                    <Button x:Name="BackButton" Text="Back" Clicked="BackButton_Clicked"/>
+                   Text="123456789"
+                    FontSize="Large"
+                    FontAttributes="Bold"
+                       />
+                    <Button x:Name="BackButton" Text="Back" Clicked="BackButton_Clicked" HeightRequest="50"/>
             </StackLayout>
         </Frame>
     </StackLayout>

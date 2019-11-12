@@ -5,7 +5,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              NavigationPage.HasNavigationBar="False"
-             x:Class="Promotion.Views.LoginPage">
+             x:Class="Promotion.Views.LoginPage"
+             BackgroundColor="{StaticResource P_PrimaryBackground}">
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style TargetType="Entry" >
@@ -21,7 +22,7 @@
     <ContentPage.Content>
         <StackLayout Margin="30">
             <StackLayout Spacing="10" VerticalOptions="CenterAndExpand">
-                <Image Source="https://cdn.pixabay.com/photo/2017/01/28/19/06/label-2016248_960_720.png" HeightRequest="150"/>
+                <Image Source="circle-cropped" HeightRequest="150"/>
                 <Label  x:Name="errorLabel" TextColor="Red" IsVisible="False"/>
                 <Frame>
                     <Entry x:Name="EmailEntry" Placeholder="Email"/>

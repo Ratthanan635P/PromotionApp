@@ -5,6 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              NavigationPage.HasBackButton="False"
+             BackgroundColor="{StaticResource P_PrimaryBackground}"
              x:Class="Promotion.Views.HistoryPage">
     <NavigationPage.TitleView>
         <Grid>
