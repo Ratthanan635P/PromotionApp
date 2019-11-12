@@ -33,57 +33,41 @@
     </NavigationPage.TitleView>
     <ContentPage.Content>
         <StackLayout Padding="15,15">
-            <ScrollView>
-                <StackLayout Padding="10,10" Spacing="15">
-                    <Frame>
-                        <StackLayout Orientation="Horizontal" Spacing="10" >
-                            <Image Source= ""    
-                           HeightRequest="100" WidthRequest="100"
-                           BackgroundColor="Blue"                        
-                           />
-                            <StackLayout>
-                                <Label Text="Promotion Name"
-                               FontSize="Medium"/>
-                                <StackLayout HeightRequest="50">
-                                    <ScrollView>
-                                        <Label FontSize="Micro" Text="Shop 2,000 Baht or more on Disney fashion items and get 50% off instantly. or register to get an instant 1,000-Baht on select Disney collections of watches and Thai merchandise at Member Service Counter (terms and conditions apply)*. 1 November 2019 – 5 January 2020 or while stocks last. King Power Rangnam, Mahanakhon, Srivaree, Pattaya and Phuket"/>
-                                    </ScrollView>
-                                </StackLayout>
-                                <StackLayout Orientation="Horizontal">
-                                    <Label Text="Exp." TextColor="Red"/>
-                                    <Label Text="20/11/2019" TextColor="Red"/>
-                                </StackLayout>
-                            </StackLayout>
-                        </StackLayout>
-                        <Frame.GestureRecognizers>
-                            <TapGestureRecognizer x:Name="DetailPromotion" Tapped="DetailPromotion_Tapped" />
-                        </Frame.GestureRecognizers>
-                    </Frame>
-
-                    <Frame>
-                        <StackLayout Orientation="Horizontal" Spacing="10" >
-                            <Image Source= ""    
-                           HeightRequest="100" WidthRequest="100"
-                           BackgroundColor="Blue"                          
-                           />
-                            <StackLayout>
-                                <Label Text="Promotion Name"
-                               FontSize="Medium"/>
-
-                                <StackLayout HeightRequest="50">
-                                    <ScrollView>
-                                        <Label FontSize="Micro" Text="Shop 2,000 Baht or more on Disney fashion items and get 50% off instantly. or register to get an instant 1,000-Baht on select Disney collections of watches and Thai merchandise at Member Service Counter (terms and conditions apply)*. 1 November 2019 – 5 January 2020 or while stocks last. King Power Rangnam, Mahanakhon, Srivaree, Pattaya and Phuket"/>
-                                    </ScrollView>
-                                </StackLayout>
-                                <StackLayout Orientation="Horizontal">
-                                    <Label Text="Exp." TextColor="Red"/>
-                                    <Label Text="20/11/2019" TextColor="Red"/>
-                                </StackLayout>
-                            </StackLayout>
-                        </StackLayout>
-                    </Frame>
-                </StackLayout>
-            </ScrollView>
+            <StackLayout Padding="10" Spacing="10">
+                <ListView x:Name="ListPromotion" ItemsSource="{Binding MyPromotionViewModel}"
+                          HasUnevenRows="true"
+                          SeparatorVisibility="None" 
+                          SeparatorColor="Silver" 
+                          Opacity="10" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <!--<TextCell Text="{Binding DisplayName}" />-->
+                                <Frame Margin="0,10">
+                                    <StackLayout Orientation="Horizontal" Spacing="10" >
+                                        <Image Source= "{Binding Image}"    
+                                         HeightRequest="100" WidthRequest="120"
+                                            BackgroundColor="Blue"
+                                           Aspect="AspectFill"
+                                         />
+                                        <StackLayout>
+                                            <Label Text="Promotion name"
+                                             FontSize="Medium"/>
+                                            <StackLayout HeightRequest="50">
+                                                <Label FontSize="Micro" Text="{Binding Title}"/>
+                                            </StackLayout>
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label Text="Exp." TextColor="Red"/>
+                                                <Label Text="{Binding Expire}" TextColor="Red"/>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
             <!--<Button Text="GET PROMOTION" 
                     VerticalOptions="EndAndExpand"
                     FontSize="Medium"
