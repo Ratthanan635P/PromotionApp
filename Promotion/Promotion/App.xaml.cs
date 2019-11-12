@@ -9,6 +9,7 @@ namespace Promotion
 	{
 		public static Uri BaseUri { get; private set; }
 		public static int UserId { get; set; }
+		public static string CodePro { get; set; }
 		public App()
 		{
               

@@ -78,12 +78,17 @@ namespace Promotion.Views
 		}
 		private async void backButton_Clicked(object sender, EventArgs e)
 		{
-			await Navigation.PopAsync();
+			//	await Navigation.PopAsync();
+			await Navigation.PushAsync(new HomePage(App.UserId));
 		}
 		private async void CmdGetCodePromotion_Clicked(object sender, EventArgs e)
 		{
-			GetCode(dataGetCode);
-			await PopupNavigation.Instance.PushAsync(new GetCodePromotionPopUp(codePromotion));
+			//codePromotion= await GetCode(dataGetCode);
+			//CmdGetCodePromotion.IsEnabled = false;
+			CmdGetCodePromotion.IsEnabled = false;
+			CmdGetCodePromotion.BackgroundColor = Color.Gray;
+
+			await PopupNavigation.Instance.PushAsync(new GetCodePromotionPopUp(dataGetCode));
 		}
 
 		//private void CmdAddMyPromotions_Clicked(object sender, EventArgs e)
