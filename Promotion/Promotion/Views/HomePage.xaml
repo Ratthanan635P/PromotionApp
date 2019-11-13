@@ -51,14 +51,14 @@
                                            Aspect="AspectFit"
                                          />
                                     <StackLayout>
-                                        <Label Text="Promotion name"
+                                            <Label Text="{Binding Title}"
                                              FontSize="Medium"/>
                                         <StackLayout HeightRequest="50">
-                                            <Label FontSize="Micro" Text="{Binding Title}"/>
+                                            <Label FontSize="Micro" Text="{Binding Detail}"/>
                                         </StackLayout>
                                         <StackLayout Orientation="Horizontal">
                                             <Label Text="Exp." TextColor="Red"/>
-                                            <Label Text="{Binding Expire}" TextColor="Red"/>
+                                            <Label Text="{Binding ExpireDate}" TextColor="Red"/>
                                         </StackLayout>
                                     </StackLayout>
                                 </StackLayout>

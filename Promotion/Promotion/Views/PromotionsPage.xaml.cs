@@ -46,6 +46,11 @@ namespace Promotion.Views
 					var stringContent = await result.Content.ReadAsStringAsync();
 					//App.UserId = 1;
 					listPromotions = JsonConvert.DeserializeObject<List<PromotionProductViewModel>>(stringContent);
+					for (int i = 0; i < listPromotions.Count; i++)
+					{
+						listPromotions[i].ExpireDate = listPromotions[i].Expire.ToString("dd/MM/yyyy");
+					}
+
 					ListPromotion.ItemsSource = listPromotions;
 				}
 				else

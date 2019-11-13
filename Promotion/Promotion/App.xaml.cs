@@ -16,8 +16,8 @@ namespace Promotion
 			//#if DEBUG
 			//#else
 			//#endif
-			//BaseUri = new Uri ("http://192.168.1.29:30000/");
-			BaseUri = new Uri ("http://192.168.43.250:30000/");
+			BaseUri = new Uri ("http://192.168.1.29:30000/");
+			//BaseUri = new Uri ("http://192.168.43.250:30000/");
 			InitializeComponent();
 
 			MainPage = new NavigationPage( new LoginPage());

@@ -16,6 +16,7 @@ namespace Promotion.Views
 	public partial class GetPromotionPage : ContentPage
 	{
 		private DetailPromotionViewModel promotionDetail = new DetailPromotionViewModel();
+
 		public GetPromotionPage()
 		{
 			InitializeComponent();
@@ -28,7 +29,6 @@ namespace Promotion.Views
 		public async void GetDetailPromotion(UpdateCommand data)
 		{
 			Uri url = new Uri(App.BaseUri, "api/Promotion/DetailPromotion");
-
 			try
 			{
 				HttpResponseMessage result;
@@ -87,7 +87,8 @@ namespace Promotion.Views
 							UserId = App.UserId,
 							PromotionId = promotionDetail.Id
 						};
-			AddMyPromotion(data);			
+			AddMyPromotion(data);	
+			
 		}
 		public async void AddMyPromotion(UpdateCommand data)
 		{

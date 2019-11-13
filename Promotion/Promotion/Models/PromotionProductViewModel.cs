@@ -10,6 +10,7 @@ namespace Promotion.Models
 		public string Image { get; set; }
 		public string Title { get; set; }
 		public DateTime Expire { get; set; }
+		public string ExpireDate { get; set; }
 		public bool Like { get; set; }
 		//public int IsUsed { get; set; }
 	}

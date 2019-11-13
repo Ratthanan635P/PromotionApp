@@ -62,7 +62,6 @@ namespace Promotion.Views
 						CmdGetCodePromotion.IsEnabled = true;
 						CmdGetCodePromotion.BackgroundColor = Color.FromHex("#009829");
 					}
-
 				}
 				else
 				{
@@ -89,22 +88,10 @@ namespace Promotion.Views
 			CmdGetCodePromotion.BackgroundColor = Color.Gray;
 
 			await PopupNavigation.Instance.PushAsync(new GetCodePromotionPopUp(dataGetCode));
-		}
-
-		//private void CmdAddMyPromotions_Clicked(object sender, EventArgs e)
-		//{
-		//	// call api add mypromotion
-		//	UpdateCommand data = new UpdateCommand()
-		//	{
-		//		UserId = App.UserId,
-		//		PromotionId = promotionDetail.Id
-		//	};
-		//	AddMyPromotion(data);
-		//}
+		}	
 		public async void GetCode(UpdateCommand data)
 		{
 			Uri url = new Uri(App.BaseUri, "api/UserPromotion/GetCode");
-
 			try
 			{
 				HttpResponseMessage result;
@@ -116,7 +103,6 @@ namespace Promotion.Views
 				}
 				if (result.IsSuccessStatusCode)
 				{
-
 					var stringContent = await result.Content.ReadAsStringAsync();
 					//App.UserId = 1;
 					 string code = JsonConvert.DeserializeObject<string>(stringContent);

@@ -71,10 +71,10 @@ namespace Promotion.Views
 					var stringContent = await result.Content.ReadAsStringAsync();
 					//App.UserId = 1;
 					listMyPromotion = JsonConvert.DeserializeObject<List<MyPromotionViewModel>>(stringContent);
-					//var gg = listMyPromotion.Select(o=> new MyPromotionViewModel()
-					//{
-					//	Expire = o.Expire.ToString("dd/MM/yyyy")
-					//}).ToList();
+					for (int i = 0; i < listMyPromotion.Count; i++)
+					{
+						listMyPromotion[i].ExpireDate = listMyPromotion[i].Expire.ToString("dd/MM/yyyy");
+					}
 					MyPromotion.ItemsSource = listMyPromotion;
 				}
 				else
