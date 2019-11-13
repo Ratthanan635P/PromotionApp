@@ -51,7 +51,7 @@ namespace Promotion.Views
 					LogoImage.Source = detailPromotion.Image;
 					Lb_Title.Text = detailPromotion.Title;
 					Lb_Detail.Text = detailPromotion.Detail;
-					Lb_Expire.Text = detailPromotion.Expire.ToString();
+					Lb_Expire.Text = detailPromotion.Expire.ToString("dd/MM/yyyy");
 					if (detailPromotion.History == true)
 					{
 						CmdGetCodePromotion.IsEnabled = false;
