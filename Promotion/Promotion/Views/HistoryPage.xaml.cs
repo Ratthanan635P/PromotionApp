@@ -17,10 +17,6 @@ namespace Promotion.Views
 	{
 
 		public List<MyPromotionViewModel> listMyHistory = new List<MyPromotionViewModel>();
-		public HistoryPage()
-		{
-			InitializeComponent();
-		}
 		public HistoryPage(int userId)
 		{
 			InitializeComponent();

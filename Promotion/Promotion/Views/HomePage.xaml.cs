@@ -17,30 +17,7 @@ namespace Promotion.Views
 	{
 		public List<MyPromotionViewModel> myPromotion;
 		public List<MyPromotionViewModel> listMyPromotion =new List<MyPromotionViewModel>();
-		public HomePage()
-		{
-			InitializeComponent();
-			//myPromotion = new List<MyPromotionViewModel>();
-
-			//myPromotion.Add(new MyPromotionViewModel()
-			//{
-			//	Id = 1,
-			//	Title = "sadasd",
-			//	Expire = DateTime.Today,
-			//	Image = "https://cdn.pixabay.com/photo/2017/01/28/19/06/label-2016248_960_720.png",
-			//	//History=false
-
-			//});
-			//myPromotion.Add(new MyPromotionViewModel()
-			//{
-			//	Id = 2,
-			//	Title = "sadasdgfgfgfg",
-			//	Expire = DateTime.Today,
-			//	Image = "https://cdn.pixabay.com/photo/2017/01/28/19/06/label-2016248_960_720.png",
-			//	//History = false
-			//});
-			//MyPromotion.ItemsSource = myPromotion;
-		}
+		
 		public HomePage(int userId)
 		{
 			InitializeComponent();

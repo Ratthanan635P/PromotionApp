@@ -47,7 +47,7 @@ namespace Promotion.Views
 					Password = password
 				};
 
-				string json = JsonConvert.SerializeObject(loginCommand);
+				string json = loginCommand.ToString2();//JsonConvert.SerializeObject(loginCommand);
 
 				try
 				{
