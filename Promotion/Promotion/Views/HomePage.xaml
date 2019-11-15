@@ -28,9 +28,9 @@
                          Command="{Binding HistoryCommand}"/>
         </Grid>
     </NavigationPage.TitleView>
-    <ContentPage.BindingContext>
+    <!--<ContentPage.BindingContext>
         <viewmodel:HomePageViewModel/>
-    </ContentPage.BindingContext>
+    </ContentPage.BindingContext>-->
     <ContentPage.Content>
         <StackLayout Padding="15,15">
             <StackLayout Padding="10" Spacing="10">
@@ -45,17 +45,23 @@
                             <ViewCell >
                             <!--<TextCell Text="{Binding DisplayName}" />-->
                                 <Frame Margin="5, 5" IsClippedToBounds="True" Padding="0">
+                                    
                                     <Frame.GestureRecognizers>
                                         <TapGestureRecognizer
-                                        Command="{Binding BindingContext.SelectedCommand, Source={x:Reference rootPage}}"
+                                        Command="{Binding BindingContext.SelectCommand, Source={x:Reference rootPage}}"
                                         CommandParameter="{Binding .}" />
-                                    </Frame.GestureRecognizers>  
-                                        
+                                    </Frame.GestureRecognizers>
+
                                     <StackLayout Orientation="Horizontal" >
-                                    <Image Source= "{Binding Image}" 
+                                        <!--<StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer
+                                        Command="{Binding BindingContext.SelectCommand, Source={x:Reference rootPage}}"
+                                        CommandParameter="{Binding .}" />
+                                        </StackLayout.GestureRecognizers>-->
+
+                                        <Image Source= "{Binding Image}" 
                                            HorizontalOptions="StartAndExpand"
-                                         HeightRequest="120" WidthRequest="150"
-                                            
+                                           HeightRequest="120" WidthRequest="150"                                        
                                            Aspect="AspectFit"
                                          />
                                     <StackLayout>
@@ -82,7 +88,7 @@
                     VerticalOptions="EndAndExpand"
                     FontSize="Medium"
                     HeightRequest="50"
-                    Clicked="CmdViewPromotions_Clicked"/>
+                    Command="{Binding PromotionPageCommand}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -49,6 +49,8 @@ namespace Promotion.ViewModels
 		public async void Login()
 		{
 			ErrorMessage = null;
+			Email = "test@test.test";
+			Password = "12345678";
 			if (string.IsNullOrEmpty(Email))//&& IsValidate Email Format
 			{
 				ErrorMessage = "Please Enter your email";				
@@ -89,6 +91,7 @@ namespace Promotion.ViewModels
 					}
 					else
 					{
+					//	ErrorMessage= await result.Content.ReadAsStringAsync();
 						ErrorMessage = "Email or Password is wrong!";
 					}
 				}
