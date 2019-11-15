@@ -38,7 +38,7 @@
                           HasUnevenRows="true"
                           SeparatorVisibility="None" 
                           SeparatorColor="Silver" 
-                          Opacity="10"                          
+                          Opacity="1"                          
                           >
                     <ListView.ItemTemplate>
                         <DataTemplate>

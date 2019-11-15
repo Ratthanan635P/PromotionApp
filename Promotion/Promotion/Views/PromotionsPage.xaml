@@ -38,12 +38,12 @@
     <ContentPage.Content>
         <StackLayout Padding="15,15">
             <StackLayout Padding="10" Spacing="10">
-                <ListView x:Name="ListPromotion" ItemsSource="{Binding ListPromotion}"
+                <ListView x:Name="ListPromotions" ItemsSource="{Binding ListPromotion}"
                           HasUnevenRows="true"
                           SeparatorVisibility="None" 
                           SeparatorColor="Silver" 
-                          Opacity="10"
-                          ItemSelected="ListPromotion_ItemSelected">
+                          Opacity="1"
+                         >
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
