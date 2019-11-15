@@ -14,10 +14,11 @@
                 <Setter Property="Margin" Value="10,0"/>
             </Style>
             <Style TargetType="Label">
-            <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
-            <Setter Property="FontSize" Value="Medium" />
-            <Setter Property="TextColor" Value="{StaticResource P_PrimaryColor}"/>
-        </Style>
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+                <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="TextColor" Value="{StaticResource P_PrimaryColor}"/>
+                
+            </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.BindingContext>
@@ -27,7 +28,14 @@
         <StackLayout Margin="30">
             <StackLayout Spacing="10" VerticalOptions="CenterAndExpand">
                 <Image Source="circle_Sale" HeightRequest="150"/>
-                <Label  x:Name="errorLabel" TextColor="Red" IsVisible="False"/>
+                <Label  x:Name="errorLabel" TextColor="Red" IsVisible="True" Text="{Binding ErrorMessage}">
+                    <Label.Triggers>
+                        <DataTrigger TargetType="Label"
+                                     Binding="{Binding Source = {x:Reference errorLabel },Path = Text.Length}" Value="0">
+                            <Setter Property="IsVisible" Value="False" />
+                        </DataTrigger>
+                    </Label.Triggers>
+                </Label>
                 <Frame>
                     <Entry x:Name="EmailEntry" Placeholder="Email" Text="{Binding Email}"/>
                 </Frame>

@@ -47,7 +47,15 @@
         <StackLayout Margin="30">
             <StackLayout Spacing="10" VerticalOptions="CenterAndExpand">
                 <!--<Image Source="https://cdn.pixabay.com/photo/2017/01/28/19/06/label-2016248_960_720.png" HeightRequest="150"/>-->
-                <Label  x:Name="errorLabel" TextColor="Red" IsVisible="False"/>
+                <!--IsVisible="{Binding True}"-->
+                <Label  x:Name="errorLabel" TextColor="Red" IsVisible="False" Text="{Binding ErrorMessage}"> 
+                    <Label.Triggers>
+                        <DataTrigger TargetType="Label"
+                                     Binding="{Binding Source = {x:Reference errorLabel },Path = Text.Length}" Value="0">
+                            <Setter Property="IsVisible" Value="False" />
+                        </DataTrigger>
+                    </Label.Triggers>
+                </Label>
                 <Frame>
                     <Entry x:Name="EmailEntry" Placeholder="Email" Text="{Binding Email}"/>
                 </Frame>

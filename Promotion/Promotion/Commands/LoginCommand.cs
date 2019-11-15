@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Promotion.Models
+namespace Promotion.Commands
 {
 	public class LoginCommand
 	{
@@ -14,7 +14,6 @@ namespace Promotion.Models
 		{
 			//return base.ToString();
 			return JsonConvert.SerializeObject(this);
-
 		}
 	}
 }

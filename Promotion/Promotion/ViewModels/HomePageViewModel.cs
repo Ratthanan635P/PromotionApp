@@ -20,7 +20,6 @@ namespace Promotion.ViewModels
 			BackPageCommand = new Command(BackPage);
 			HistoryCommand = new Command(HistoryPage);
 			PromotionPageCommand = new Command(PromotionsPage);
-
 		}
 		private void OnSelectedListView(MyPromotionViewModel promotion)
 		{

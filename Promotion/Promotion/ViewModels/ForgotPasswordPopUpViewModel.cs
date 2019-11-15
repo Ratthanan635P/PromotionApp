@@ -2,30 +2,32 @@
 using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Text;
-using System.Threading.Tasks;
-
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
-namespace Promotion.Views.PopUp
+namespace Promotion.ViewModels
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class ForgotPasswordPopUp : Rg.Plugins.Popup.Pages.PopupPage
+    public class ForgotPasswordPopUpViewModel
 	{
-		public ForgotPasswordPopUp()
+		public string Email { get; set; }
+		public string Password { get; set; }
+		//public string ErrorMessage { get; set; }
+		public Command ForgotPaaswordCommand { get; set; }
+		public Command BackPageCommand { get; set; }
+
+		public ForgotPasswordPopUpViewModel()
 		{
-			InitializeComponent();
+			BackPageCommand = new Command(BackPage);
+			ForgotPaaswordCommand = new Command(ForgotPassword);
 		}
-		/*
-		private async void ForgotPasswordButton_Clicked(object sender, EventArgs e)
+		private async void ForgotPassword()
 		{
-			var email = EmailEntry.Text;
-			if (!string.IsNullOrEmpty(email))//&& IsValidate Email Format
+			//var email = EmailEntry.Text;
+			if (!string.IsNullOrEmpty(Email))//&& IsValidate Email Format
 			{
-				Uri url = new Uri(App.BaseUri, "api/User?email="+email);
+				Uri url = new Uri(App.BaseUri, "api/User?email=" + Email);
+
 				//LoginCommand loginCommand = new LoginCommand()
 				//{
 				//	Email = email,
@@ -47,8 +49,8 @@ namespace Promotion.Views.PopUp
 						//Navigate to Home page
 						var stringContent = await result.Content.ReadAsStringAsync();
 						//App.UserId = 1;
-						string password= JsonConvert.DeserializeObject<string>(stringContent);
-						await DisplayAlert("",password,"OK");
+						string password = JsonConvert.DeserializeObject<string>(stringContent);
+						await App.Current.MainPage.DisplayAlert("", password, "OK");
 						await PopupNavigation.Instance.PopAsync();
 					}
 					else
@@ -65,9 +67,9 @@ namespace Promotion.Views.PopUp
 			}
 		}
 
-		private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+		private async void BackPage()
 		{
 			await PopupNavigation.Instance.PopAsync();
-		}*/
+		}
 	}
 }
