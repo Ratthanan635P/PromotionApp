@@ -3,9 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModel="clr-namespace:Promotion.ViewModels"
              mc:Ignorable="d"
              NavigationPage.HasBackButton="False"
              x:Class="Promotion.Views.GetCodePage">
+    <!--<ContentPage.BindingContext>
+        <viewModel:GetCodePageViewModel/>
+    </ContentPage.BindingContext>-->
     <NavigationPage.TitleView>
         <Grid>
             <Grid.ColumnDefinitions>
@@ -17,7 +21,7 @@
                          x:Name="backButton" Grid.Column="0"
                          HorizontalOptions="FillAndExpand" 
                          Aspect="AspectFit" HeightRequest="50" BackgroundColor="Transparent" 
-                         Clicked="backButton_Clicked"/>
+                         Command="{Binding BackPageCommand}"/>
             <Label Text="Promotion Name"  Grid.Column="1"
                     HorizontalOptions="CenterAndExpand" 
                     VerticalOptions="Center"
@@ -38,18 +42,18 @@
 
                     <Image x:Name="LogoImage"
                          Aspect="AspectFill"
-                           Grid.Row="0"/>
+                           Grid.Row="0"
+                           Source="{Binding DetailPromotion.Image}"/>
 
                     <BoxView BackgroundColor="Gray" HeightRequest="1" Grid.Row="1"/>
 
                     <StackLayout Padding="15,15"                          
                              Grid.Row="2">
                         <StackLayout>
-                            <Label x:Name="Lb_Title" Text="Promotion Name"
+                            <Label x:Name="Lb_Title" Text="{Binding DetailPromotion.Title}"
                                FontSize="Medium"/>
-                            <Label x:Name="Lb_Detail" FontSize="Small" Text=""/>
+                            <Label x:Name="Lb_Detail" FontSize="Small" Text="{Binding DetailPromotion.Detail}"/>
                         </StackLayout>
-
                     </StackLayout>
                 </Grid>
             </ScrollView>
@@ -65,7 +69,8 @@
                     VerticalOptions="EndAndExpand"
                     FontSize="Medium"
                     HeightRequest="50"
-                    Clicked="CmdGetCodePromotion_Clicked"/>
+                   
+                    Command="{Binding GetCodeCommand}"/>
             </StackLayout>
         </StackLayout>
 
