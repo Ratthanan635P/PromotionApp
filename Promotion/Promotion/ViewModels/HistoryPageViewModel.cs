@@ -10,14 +10,11 @@ using Xamarin.Forms;
 
 namespace Promotion.ViewModels
 {
-	
-	public class HomePageViewModel : INotifyPropertyChanged
+	public class HistoryPageViewModel:INotifyPropertyChanged
 	{
-		public List<MyPromotionViewModel> MyListPromotion { get; set; }
+		public List<MyPromotionViewModel> ListHistoryPromotion { get; set; }
 		public Command SelectCommand { get; set; }
 		public Command BackPageCommand { get; set; }
-		public Command PromotionPageCommand { get; set; }
-		public Command HistoryCommand { get; set; }
 		public int UserId { get; set; }
 		private int countlist;
 		public int Countlist
@@ -31,20 +28,17 @@ namespace Promotion.ViewModels
 				if (value != countlist)
 				{
 					countlist = value;
-					PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("MyListPromotion"));
+					PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ListHistoryPromotion"));
 				}
 			}
 		}
-		public HomePageViewModel(int userId)
+		public HistoryPageViewModel(int userId)
 		{
 			UserId = userId;
-			GetMyPromotion(userId);
+			GetHistoryPromotion(userId);
 			SelectCommand = new Command<MyPromotionViewModel>(OnSelectedListView);
 			BackPageCommand = new Command(BackPage);
-			HistoryCommand = new Command(HistoryPage);
-			PromotionPageCommand = new Command(PromotionsPage);
 		}
-
 		public event PropertyChangedEventHandler PropertyChanged;
 
 		private void OnSelectedListView(MyPromotionViewModel promotion)
@@ -53,24 +47,17 @@ namespace Promotion.ViewModels
 			{
 				UserId = UserId,
 				PromotionId = promotion.Id
-            };
+			};
 			App.Current.MainPage.Navigation.PushAsync(new GetCodePage(Data));
 		}
 		public void BackPage()
 		{
 			App.Current.MainPage.Navigation.PopAsync();
 		}
-		public void HistoryPage()
+		
+		public async void GetHistoryPromotion(int userId)
 		{
-		  App.Current.MainPage.Navigation.PushAsync( new HistoryPage(UserId));
-		}
-		public void PromotionsPage()
-		{
-		  App.Current.MainPage.Navigation.PushAsync(new PromotionsPage(UserId));
-		}
-		public async void GetMyPromotion(int userId)
-		{
-			Uri url = new Uri(App.BaseUri, "api/Promotion/MyPromotion/?id=" + userId + "&history=false");
+			Uri url = new Uri(App.BaseUri, "api/Promotion/MyPromotion/?id=" + userId + "&history=true");
 
 			try
 			{
@@ -85,17 +72,16 @@ namespace Promotion.ViewModels
 					//Navigate to Home page
 					var stringContent = await result.Content.ReadAsStringAsync();
 					//App.UserId = 1;
-					MyListPromotion = JsonConvert.DeserializeObject<List<MyPromotionViewModel>>(stringContent);
-					Countlist = MyListPromotion.Count;
-					for (int i = 0; i < MyListPromotion.Count; i++)
+					ListHistoryPromotion = JsonConvert.DeserializeObject<List<MyPromotionViewModel>>(stringContent);
+					Countlist = ListHistoryPromotion.Count;
+					for (int i = 0; i < ListHistoryPromotion.Count; i++)
 					{
-						MyListPromotion[i].ExpireDate = MyListPromotion[i].Expire.ToString("dd/MM/yyyy");
-					}					
+						ListHistoryPromotion[i].ExpireDate = ListHistoryPromotion[i].Expire.ToString("dd/MM/yyyy");
+					}
 				}
 				else
 				{
 					//errormessage= await result.Content.ReadAsStringAsync();
-				
 				}
 			}
 			catch (Exception ex)
@@ -103,7 +89,6 @@ namespace Promotion.ViewModels
 				//errormessage= await result.Content.ReadAsStringAsync();
 			}
 		}
-
 
 	}
 }

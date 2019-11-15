@@ -3,10 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewmodel="clr-namespace:Promotion.ViewModels" x:Name="rootPage"
              mc:Ignorable="d"
              NavigationPage.HasBackButton="False"
              BackgroundColor="{StaticResource P_PrimaryBackground}"
              x:Class="Promotion.Views.PromotionsPage">
+    <!--<ContentPage.BindingContext>
+        <viewmodel:PromotionsPageViewModel/>
+    </ContentPage.BindingContext>-->
     <NavigationPage.TitleView>
         <Grid>
             <Grid.ColumnDefinitions>
@@ -18,7 +22,7 @@
                          x:Name="backButton" Grid.Column="0"
                          HorizontalOptions="FillAndExpand" 
                          Aspect="AspectFit" HeightRequest="50" BackgroundColor="Transparent" 
-                         Clicked="backButton_Clicked"/>
+                         Command="{Binding BackPageCommand}"/>
             <Label Text="Promotions"  Grid.Column="1"
                     HorizontalOptions="CenterAndExpand" 
                     VerticalOptions="Center"
@@ -34,7 +38,7 @@
     <ContentPage.Content>
         <StackLayout Padding="15,15">
             <StackLayout Padding="10" Spacing="10">
-                <ListView x:Name="ListPromotion" ItemsSource="{Binding MyPromotionViewModel}"
+                <ListView x:Name="ListPromotion" ItemsSource="{Binding ListPromotion}"
                           HasUnevenRows="true"
                           SeparatorVisibility="None" 
                           SeparatorColor="Silver" 
@@ -45,6 +49,11 @@
                             <ViewCell>
                                 <!--<TextCell Text="{Binding DisplayName}" />-->
                                 <Frame Margin="5, 5" IsClippedToBounds="True" Padding="0">
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer
+                                        Command="{Binding BindingContext.SelectCommand, Source={x:Reference rootPage}}"
+                                        CommandParameter="{Binding .}" />
+                                    </Frame.GestureRecognizers>
 
                                     <StackLayout Orientation="Horizontal" Spacing="10" >
                                         <Image Source= "{Binding Image}"    
