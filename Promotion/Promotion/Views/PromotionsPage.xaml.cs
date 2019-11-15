@@ -15,13 +15,11 @@ namespace Promotion.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class PromotionsPage : ContentPage
-	{
-			
+	{			
 		public PromotionsPage(int userId)
 		{
 			InitializeComponent();
-			BindingContext = new PromotionsPageViewModel(userId);
-		}
-		
+		    BindingContext = new PromotionsPageViewModel(userId);
+		}		
 	}
 }

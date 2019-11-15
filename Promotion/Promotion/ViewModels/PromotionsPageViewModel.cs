@@ -10,9 +10,24 @@ using Xamarin.Forms;
 
 namespace Promotion.ViewModels
 {
-	public class PromotionsPageViewModel
+	public class PromotionsPageViewModel:INotifyPropertyChanged
 	{
-		public List<PromotionProductViewModel> ListPromotionsAll { get; set; }
+		private List<PromotionProductViewModel> listPromotionsAll;
+		public List<PromotionProductViewModel> ListPromotionsAll 
+        {
+			get
+			{
+				return listPromotionsAll;
+			}
+			set
+			{
+				if (value != listPromotionsAll)
+				{
+					listPromotionsAll = value;
+					PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ListPromotionsAll"));
+				}
+			}
+		}
 		public Command SelectCommand { get; set; }
 		public Command BackPageCommand { get; set; }
 		public int UserId { get; set; }
@@ -32,6 +47,8 @@ namespace Promotion.ViewModels
 				}
 			}
 		}
+		public PromotionsPageViewModel()
+		{ }
 		public PromotionsPageViewModel(int userId)
 		{
 			UserId = userId;
