@@ -19,7 +19,7 @@ namespace Promotion.Views
 		{
 			InitializeComponent();
 		}
-
+/*
 		private async void LogInTap_Tapped(object sender, EventArgs e)
 		{
 			await Navigation.PopAsync();
@@ -98,6 +98,6 @@ namespace Promotion.Views
 		private async void backButton_Clicked(object sender, EventArgs e)
 		{
 			await Navigation.PopAsync();
-		}
+		}*/
 	}
 }

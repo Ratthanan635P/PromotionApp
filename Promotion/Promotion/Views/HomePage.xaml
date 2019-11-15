@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewmodel="clr-namespace:Promotion.ViewModels" x:Name="rootPage"
              mc:Ignorable="d"
              NavigationPage.HasBackButton="False"
              BackgroundColor="{StaticResource P_PrimaryBackground}"
@@ -24,26 +25,33 @@
                          x:Name="historyButton" Grid.Column="2"
                          HorizontalOptions="FillAndExpand" 
                          Aspect="AspectFit" HeightRequest="50" BackgroundColor="Transparent" 
-                         Clicked="historyButton_Clicked"/>
+                         Command="{Binding HistoryCommand}"/>
         </Grid>
     </NavigationPage.TitleView>
-    
+    <ContentPage.BindingContext>
+        <viewmodel:HomePageViewModel/>
+    </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout Padding="15,15">
             <StackLayout Padding="10" Spacing="10">
-                <ListView x:Name="MyPromotion" ItemsSource="{Binding MyPromotionViewModel}"
+                <ListView x:Name="MyPromotion" ItemsSource="{Binding MyListPromotion}"
                           HasUnevenRows="true"
                           SeparatorVisibility="None" 
                           SeparatorColor="Silver" 
-                          Opacity="10" 
-                          
-                          ItemSelected="MyPromotion_ItemSelected">
+                          Opacity="10"                          
+                          >
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell >
                             <!--<TextCell Text="{Binding DisplayName}" />-->
                                 <Frame Margin="5, 5" IsClippedToBounds="True" Padding="0">
-                                <StackLayout Orientation="Horizontal" >
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer
+                                        Command="{Binding BindingContext.SelectedCommand, Source={x:Reference rootPage}}"
+                                        CommandParameter="{Binding .}" />
+                                    </Frame.GestureRecognizers>  
+                                        
+                                    <StackLayout Orientation="Horizontal" >
                                     <Image Source= "{Binding Image}" 
                                            HorizontalOptions="StartAndExpand"
                                          HeightRequest="120" WidthRequest="150"

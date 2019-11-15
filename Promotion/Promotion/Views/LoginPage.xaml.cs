@@ -21,7 +21,11 @@ namespace Promotion.Views
 		{
 			InitializeComponent();
 		}
-		private async void LoginButton_Clicked(object sender, EventArgs e)
+	
+/*
+
+
+        private async void LoginButton_Clicked(object sender, EventArgs e)
 		{
 			//LogIn
 			var email = EmailEntry.Text;
@@ -93,5 +97,6 @@ namespace Promotion.Views
 			// Pop up forgot password
 			await PopupNavigation.Instance.PushAsync(new ForgotPasswordPopUp());
 		}
+		*/
 	}
 }
