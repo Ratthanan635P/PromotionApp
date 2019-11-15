@@ -23,7 +23,7 @@ namespace Promotion.ViewModels
 				if (value != detailpromotion)
 				{
 					detailpromotion = value;
-					PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("DeatilPromotion"));
+					PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("DetailPromotion"));
 				}
 			}
 		}

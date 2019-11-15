@@ -12,7 +12,7 @@ namespace Promotion.ViewModels
 {
 	public class PromotionsPageViewModel
 	{
-		public List<PromotionProductViewModel> ListPromotion { get; set; }
+		public List<PromotionProductViewModel> ListPromotionsAll { get; set; }
 		public Command SelectCommand { get; set; }
 		public Command BackPageCommand { get; set; }
 		public int UserId { get; set; }
@@ -28,7 +28,7 @@ namespace Promotion.ViewModels
 				if (value != countlist)
 				{
 					countlist = value;
-					PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ListPromotion"));
+					PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ListPromotionsAll"));
 				}
 			}
 		}
@@ -72,14 +72,14 @@ namespace Promotion.ViewModels
 					//Navigate to Home page
 					var stringContent = await result.Content.ReadAsStringAsync();
 					//App.UserId = 1;
-					ListPromotion = JsonConvert.DeserializeObject<List<PromotionProductViewModel>>(stringContent);
-					Countlist = ListPromotion.Count;
-					for (int i = 0; i < ListPromotion.Count; i++)
+					ListPromotionsAll = JsonConvert.DeserializeObject<List<PromotionProductViewModel>>(stringContent);
+					
+					for (int i = 0; i < ListPromotionsAll.Count; i++)
 					{
-						ListPromotion[i].ExpireDate = ListPromotion[i].Expire.ToString("dd/MM/yyyy");
+						ListPromotionsAll[i].ExpireDate = ListPromotionsAll[i].Expire.ToString("dd/MM/yyyy");
 					}
+					Countlist = ListPromotionsAll.Count;
 
-			
 				}
 				else
 				{

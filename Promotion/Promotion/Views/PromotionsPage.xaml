@@ -38,7 +38,7 @@
     <ContentPage.Content>
         <StackLayout Padding="15,15">
             <StackLayout Padding="10" Spacing="10">
-                <ListView x:Name="ListPromotions" ItemsSource="{Binding ListPromotion}"
+                <ListView x:Name="ListPromotions" ItemsSource="{Binding ListPromotionsAll}"
                           HasUnevenRows="true"
                           SeparatorVisibility="None" 
                           SeparatorColor="Silver" 
