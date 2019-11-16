@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Promotion.Commands;
 using Promotion.Models;
 using Rg.Plugins.Popup.Services;
 using System;

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Promotion.Models
 {
-	public class MyPromotionViewModel
+	public class PromotionProductModel
 	{
 		public int Id { get; set; }
 		public string Image { get; set; }
@@ -12,6 +12,7 @@ namespace Promotion.Models
 		public string Detail { get; set; }
 		public DateTime Expire { get; set; }
 		public string ExpireDate { get; set; }
-		public bool History { get; set; }
+		public bool Like { get; set; }
+		//public int IsUsed { get; set; }
 	}
 }

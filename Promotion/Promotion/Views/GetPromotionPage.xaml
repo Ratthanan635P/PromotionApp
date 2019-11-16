@@ -3,9 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewmodel="clr-namespace:Promotion.ViewModels"
              mc:Ignorable="d"
              NavigationPage.HasBackButton="False"
              x:Class="Promotion.Views.GetPromotionPage">
+    <!--<ContentPage.BindingContext>
+        <viewmodel:GetPromotionPageViewModel/>
+    </ContentPage.BindingContext>-->
     <NavigationPage.TitleView>
         <Grid>
             <Grid.ColumnDefinitions>
@@ -17,7 +21,7 @@
                          x:Name="backButton" Grid.Column="0"
                          HorizontalOptions="FillAndExpand" 
                          Aspect="AspectFit" HeightRequest="50" BackgroundColor="Transparent" 
-                         Clicked="backButton_Clicked"/>
+                         Command="{Binding BackPageCommand}"/>
             <Label Text="Promotion Name"  Grid.Column="1"
                     HorizontalOptions="CenterAndExpand" 
                     VerticalOptions="Center"
@@ -28,6 +32,7 @@
     <ContentPage.Content>
         <StackLayout Spacing="0">
             <Image x:Name="LogoImage"
+                   Source="{Binding DetailPromotion.Image}"
                          Aspect="AspectFit"
                            />
 
@@ -36,10 +41,11 @@
             <StackLayout Padding="15,15"  >
 
                 <StackLayout>
-                    <Label x:Name="Lb_Title" Text="Promotion Name"
-                               FontSize="Medium"/>
+                    <Label x:Name="Lb_Title" Text="{Binding DetailPromotion.Title}"
+                               FontSize="Medium"
+                               />
                     <ScrollView>
-                        <Label x:Name="Lb_Detail" FontSize="Small" Text=""/>
+                        <Label x:Name="Lb_Detail" FontSize="Small" Text="{Binding DetailPromotion.Detail}"/>
                     </ScrollView>
                 </StackLayout>
             </StackLayout>
@@ -49,7 +55,8 @@
                          Padding="15,15">
                 <StackLayout Orientation="Horizontal" Padding="10">
                     <Label Text="Exp." TextColor="Red"/>
-                    <Label x:Name="Lb_Expire" Text="20/11/2019" TextColor="Red"/>
+                    <Label x:Name="Lb_Expire" Text="{Binding DetailPromotion.ExpireDate}" TextColor="Red"/>
+                    <Label x:Name="LbHistory" Text="History" IsEnabled="{Binding DetailPromotion.History}" IsVisible="False" />
                 </StackLayout>
                 <Button 
                     x:Name="CmdAddMyPromotions"
@@ -57,7 +64,17 @@
                     VerticalOptions="EndAndExpand"
                     FontSize="Medium"
                     HeightRequest="50"
-                    Clicked="CmdAddMyPromotions_Clicked"/>
+                    Command="{Binding GetPromotionCommand}">
+                    <Button.Triggers>
+                        <DataTrigger TargetType="Button" 
+                                     Binding="{Binding Source={x:Reference LbHistory},
+                                       Path=IsEnabled}"
+                              Value="True">
+
+                            <Setter Property="BackgroundColor" Value="Gray"/>
+                        </DataTrigger>
+                    </Button.Triggers>
+                </Button>
             </StackLayout>
         </StackLayout>
 

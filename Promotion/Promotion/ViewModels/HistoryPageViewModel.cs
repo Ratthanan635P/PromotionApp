@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Promotion.Commands;
 using Promotion.Models;
 using Promotion.Views;
 using System;
@@ -12,7 +13,7 @@ namespace Promotion.ViewModels
 {
 	public class HistoryPageViewModel:INotifyPropertyChanged
 	{
-		public List<MyPromotionViewModel> ListHistoryPromotion { get; set; }
+		public List<MyPromotionModel> ListHistoryPromotion { get; set; }
 		public Command SelectCommand { get; set; }
 		public Command BackPageCommand { get; set; }
 		public int UserId { get; set; }
@@ -36,12 +37,12 @@ namespace Promotion.ViewModels
 		{
 			UserId = userId;
 			GetHistoryPromotion(userId);
-			SelectCommand = new Command<MyPromotionViewModel>(OnSelectedListView);
+			SelectCommand = new Command<MyPromotionModel>(OnSelectedListView);
 			BackPageCommand = new Command(BackPage);
 		}
 		public event PropertyChangedEventHandler PropertyChanged;
 
-		private void OnSelectedListView(MyPromotionViewModel promotion)
+		private void OnSelectedListView(MyPromotionModel promotion)
 		{
 			UpdateCommand Data = new UpdateCommand()
 			{
@@ -72,7 +73,7 @@ namespace Promotion.ViewModels
 					//Navigate to Home page
 					var stringContent = await result.Content.ReadAsStringAsync();
 					//App.UserId = 1;
-					ListHistoryPromotion = JsonConvert.DeserializeObject<List<MyPromotionViewModel>>(stringContent);
+					ListHistoryPromotion = JsonConvert.DeserializeObject<List<MyPromotionModel>>(stringContent);
 					Countlist = ListHistoryPromotion.Count;
 					for (int i = 0; i < ListHistoryPromotion.Count; i++)
 					{
