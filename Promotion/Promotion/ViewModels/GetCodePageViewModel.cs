@@ -1,6 +1,8 @@
 ﻿using Newtonsoft.Json;
 using Promotion.Commands;
 using Promotion.Models;
+using Promotion.Views.PopUp;
+using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -48,13 +50,22 @@ namespace Promotion.ViewModels
 
 		public Command SelectCommand { get; set; }
 		public Command BackPageCommand { get; set; }
-		public Command GetCodeCommand { get; set; }	
-	
+		public Command GetCodeCommand { get; set; }
+		private UpdateCommand UpdateData { get; set; }
 		public GetCodePageViewModel(UpdateCommand data)
-		{			
-			GetDetailPromotion(data);			
+		{
+			UpdateData = data;
+
+			  GetDetailPromotion(data);			
 			BackPageCommand = new Command(BackPage);		
 		}
+
+
+		public void GetCodePopUp()
+		{
+			PopupNavigation.Instance.PushAsync(new GetCodePromotionPopUp(UpdateData));
+		}
+
 		public async void GetDetailPromotion(UpdateCommand data)
 		{
 			Uri url = new Uri(App.BaseUri, "api/Promotion/DetailPromotion");
