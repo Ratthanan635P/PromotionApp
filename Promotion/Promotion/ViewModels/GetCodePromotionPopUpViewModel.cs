@@ -57,10 +57,10 @@ namespace Promotion.ViewModels
 				if (result.IsSuccessStatusCode)
 				{
 
-					var stringContent = await result.Content.ReadAsStringAsync();
+					CodePromotion = await result.Content.ReadAsStringAsync();
 					//App.UserId = 1;
 					//string code = JsonConvert.DeserializeObject<string>(stringContent);
-					Lb_Code.Text = stringContent;
+					//Lb_Code.Text = stringContent;
 					//await Navigation.PushAsync(new HomePage(App.UserId));
 				}
 				else
@@ -80,6 +80,7 @@ namespace Promotion.ViewModels
 
 		public void BackPage()
 		{
+
 			App.Current.MainPage.Navigation.PopAsync();
 		}
 	}

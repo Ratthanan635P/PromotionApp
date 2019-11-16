@@ -57,7 +57,8 @@ namespace Promotion.ViewModels
 			UpdateData = data;
 
 			  GetDetailPromotion(data);			
-			BackPageCommand = new Command(BackPage);		
+			BackPageCommand = new Command(BackPage);
+			GetCodeCommand = new Command(GetCodePopUp);
 		}
 
 
