@@ -88,7 +88,6 @@ namespace Promotion.ViewModels
 		public async void GetDetailPromotion(UpdateCommand data)
 		{
 			Uri url = new Uri(App.BaseUri, "api/Promotion/DetailPromotion");
-
 			try
 			{
 				HttpResponseMessage result;
