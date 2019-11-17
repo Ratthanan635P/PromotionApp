@@ -22,7 +22,7 @@
                          HorizontalOptions="FillAndExpand" 
                          Aspect="AspectFit" HeightRequest="50" BackgroundColor="Transparent" 
                          Command="{Binding BackPageCommand}"/>
-            <Label Text="Promotion Name"  Grid.Column="1"
+            <Label Text="{Binding DetailPromotion.Title}"  Grid.Column="1"
                     HorizontalOptions="CenterAndExpand" 
                     VerticalOptions="Center"
                      TextColor="White"
@@ -31,25 +31,23 @@
     </NavigationPage.TitleView>
     <ContentPage.Content>
         <StackLayout Spacing="0">
-            <Image x:Name="LogoImage"
+            <ScrollView>
+                <StackLayout  Spacing="0">
+                <Image x:Name="LogoImage"
                    Source="{Binding DetailPromotion.Image}"
                          Aspect="AspectFit"
+                        HeightRequest="310"
                            />
+               <BoxView BackgroundColor="Gray" HeightRequest="1"/>
+                <StackLayout Padding="15,15"  >
 
-                    <BoxView BackgroundColor="Gray" HeightRequest="1"/>
-
-            <StackLayout Padding="15,15"  >
-
-                <StackLayout>
-                    <Label x:Name="Lb_Title" Text="{Binding DetailPromotion.Title}"
+                        <Label x:Name="Lb_Title" Text="{Binding DetailPromotion.Title}"
                                FontSize="Medium"
                                />
-                    <ScrollView>
                         <Label x:Name="Lb_Detail" FontSize="Small" Text="{Binding DetailPromotion.Detail}"/>
-                    </ScrollView>
-                </StackLayout>
+                    </StackLayout>
             </StackLayout>
-       
+            </ScrollView>
            
             <StackLayout VerticalOptions="EndAndExpand"
                          Padding="15,15">

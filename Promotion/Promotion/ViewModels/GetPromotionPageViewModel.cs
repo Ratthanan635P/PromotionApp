@@ -102,9 +102,9 @@ namespace Promotion.ViewModels
 				//errorLabel.IsVisible = true;
 			}
 		}	
-		public void BackPage()
+		public async void BackPage()
 		{
-			App.Current.MainPage.Navigation.PopAsync();
+			await App.Current.MainPage.Navigation.PopAsync();
 		}
 		public async void AddMyPromotion()
 		{

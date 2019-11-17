@@ -19,10 +19,19 @@ namespace Promotion.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class GetCodePage : ContentPage
 	{
+		private GetCodePageViewModel getCodePageView;
+		public UpdateCommand Data { get; set; }
 		public GetCodePage(UpdateCommand data)
 		{
-			InitializeComponent();
-			BindingContext = new GetCodePageViewModel(data);
-		}		
+			Data = data;
+			getCodePageView = new GetCodePageViewModel(data);
+			BindingContext = getCodePageView;
+			InitializeComponent();			
+		}
+		protected override void OnAppearing()
+		{
+			base.OnAppearing();
+		    getCodePageView.GetDetailPromotion(Data);
+		}
 	}
 }

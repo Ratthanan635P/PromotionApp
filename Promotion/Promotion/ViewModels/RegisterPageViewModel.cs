@@ -105,13 +105,13 @@ namespace Promotion.ViewModels
 			}
 
 		}
-		public void Login()
+		public async void Login()
 		{
-			 App.Current.MainPage.Navigation.PopAsync();
+			await App.Current.MainPage.Navigation.PopAsync();
 		}
-		public void BackPage()
+		public async void BackPage()
 		{
-			App.Current.MainPage.Navigation.PopAsync();
+			await App.Current.MainPage.Navigation.PopAsync();
 		}
 	}
 }

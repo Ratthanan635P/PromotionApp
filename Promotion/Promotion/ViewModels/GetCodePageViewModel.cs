@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Promotion.Commands;
 using Promotion.Models;
+using Promotion.Views;
 using Promotion.Views.PopUp;
 using Rg.Plugins.Popup.Services;
 using System;
@@ -46,6 +47,22 @@ namespace Promotion.ViewModels
 				}
 			}
 		}
+		private bool history;
+		public bool History
+		{
+			get
+			{
+				return history;
+			}
+			set
+			{
+				if (value != history)
+				{
+					history = value;
+					PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("DetailPromotion"));
+				}
+			}
+		}
 		public event PropertyChangedEventHandler PropertyChanged;
 
 		public Command SelectCommand { get; set; }
@@ -62,9 +79,10 @@ namespace Promotion.ViewModels
 		}
 
 
-		public void GetCodePopUp()
+		public async void GetCodePopUp()
 		{
-			PopupNavigation.Instance.PushAsync(new GetCodePromotionPopUp(UpdateData));
+			History = true;
+			await PopupNavigation.Instance.PushAsync(new GetCodePromotionPopUp(UpdateData));
 		}
 
 		public async void GetDetailPromotion(UpdateCommand data)
@@ -86,8 +104,8 @@ namespace Promotion.ViewModels
 					var stringContent = await result.Content.ReadAsStringAsync();
 					//App.UserId = 1;
 					 DetailPromotion = JsonConvert.DeserializeObject<DetailPromotionModel>(stringContent);
-					ExpireDate=DetailPromotion.ExpireDate = DetailPromotion.Expire.ToString("dd/MM/yyyy");
-					
+					DetailPromotion.ExpireDate = DetailPromotion.Expire.ToString("dd/MM/yyyy");
+					ExpireDate = DetailPromotion.ExpireDate;
 					if (DetailPromotion.History == true)
 					{
 						//CmdGetCodePromotion.IsEnabled = false;
@@ -111,9 +129,10 @@ namespace Promotion.ViewModels
 				//errorLabel.IsVisible = true;
 			}
 		}
-		public void BackPage()
+		public async void BackPage()
 		{
-			App.Current.MainPage.Navigation.PopAsync();
+			//App.Current.MainPage.Navigation.PushAsync( new HomePage(UpdateData.UserId));
+			await App.Current.MainPage.Navigation.PopAsync();
 		}	
 	}
 }

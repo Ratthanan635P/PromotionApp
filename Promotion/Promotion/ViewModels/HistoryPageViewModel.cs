@@ -42,18 +42,18 @@ namespace Promotion.ViewModels
 		}
 		public event PropertyChangedEventHandler PropertyChanged;
 
-		private void OnSelectedListView(MyPromotionModel promotion)
+		private async void OnSelectedListView(MyPromotionModel promotion)
 		{
 			UpdateCommand Data = new UpdateCommand()
 			{
 				UserId = UserId,
 				PromotionId = promotion.Id
 			};
-			App.Current.MainPage.Navigation.PushAsync(new GetCodePage(Data));
+			await App.Current.MainPage.Navigation.PushAsync(new GetCodePage(Data));
 		}
-		public void BackPage()
+		public async void BackPage()
 		{
-			App.Current.MainPage.Navigation.PopAsync();
+			await App.Current.MainPage.Navigation.PopAsync();
 		}
 		
 		public async void GetHistoryPromotion(int userId)

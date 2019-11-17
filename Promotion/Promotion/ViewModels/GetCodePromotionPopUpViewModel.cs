@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Promotion.Commands;
+using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -78,10 +79,10 @@ namespace Promotion.ViewModels
 
 		}
 
-		public void BackPage()
+		public async void BackPage()
 		{
 
-			App.Current.MainPage.Navigation.PopAsync();
+		await PopupNavigation.Instance.PopAsync();
 		}
 	}
 }

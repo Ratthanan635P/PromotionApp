@@ -65,7 +65,7 @@
                                             <Label Text="{Binding Title}"
                                              FontSize="Medium"/>
                                             <StackLayout HeightRequest="50">
-                                                <Label FontSize="Micro" Text="{Binding Detail}"/>
+                                                <Label FontSize="Micro" Text="{Binding Detail}" LineBreakMode="TailTruncation" MaxLines="4"/>
                                             </StackLayout>
                                             <StackLayout Orientation="Horizontal">
                                                 <Label Text="Exp." TextColor="Red"/>

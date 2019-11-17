@@ -19,8 +19,8 @@ namespace Promotion.Views
 	{
 		public GetPromotionPage(UpdateCommand data)
 		{
-			InitializeComponent();
-			BindingContext = new GetPromotionPageViewModel(data);	
+			BindingContext = new GetPromotionPageViewModel(data);
+			InitializeComponent();				
 		}
 		
 	}
