@@ -23,8 +23,11 @@
                          Aspect="AspectFit" HeightRequest="50" BackgroundColor="Transparent" 
                          Command="{Binding BackPageCommand}"/>
             <Label Text="{Binding Source={x:Reference Lb_Title},
-                                Path=Text}"  Grid.Column="1"
+                                Path=Text}"  Grid.Column="1"                  
+                   WidthRequest="150"
+                   BackgroundColor="Transparent"
                     HorizontalOptions="CenterAndExpand" 
+                   HorizontalTextAlignment="Center"
                     VerticalOptions="Center"
                      TextColor="White"
                      FontSize="Large"/>
@@ -36,7 +39,7 @@
                 <StackLayout  Spacing="0">
                     <Image x:Name="LogoImage"
                    Source="{Binding DetailPromotion.Image}"
-                         Aspect="AspectFit"
+                         Aspect="Fill"
                         HeightRequest="310"
                            />
                     <BoxView BackgroundColor="Gray" HeightRequest="1"/>
@@ -53,7 +56,8 @@
                          Padding="15,15">
                 <StackLayout Orientation="Horizontal" Padding="10">
                     <Label Text="Exp." TextColor="Red"/>
-                    <Label x:Name="Lb_Expire" Text="{Binding DetailPromotion.ExpireDate}" TextColor="Red"/>
+                    <Label x:Name="Lb_Expire" Text="{Binding ExpireDate}" TextColor="Red"   WidthRequest="100"
+                  BackgroundColor="Transparent"/>
                     <Label x:Name="LbHistory" Text="History" IsEnabled="{Binding DetailPromotion.History}" IsVisible="False" BackgroundColor="Brown" />
                 </StackLayout>
                 <Button 
@@ -67,8 +71,7 @@
                         <DataTrigger TargetType="Button" 
                                      Binding="{Binding Source={x:Reference LbHistory},
                                        Path=IsEnabled}"
-                     Value="True">
-                           
+                                        Value="True">
                             <Setter Property="BackgroundColor" Value="Gray"/>
                         </DataTrigger>
                     </Button.Triggers>

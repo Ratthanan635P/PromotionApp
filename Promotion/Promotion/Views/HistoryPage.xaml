@@ -60,13 +60,15 @@
                                         <Image Source= "{Binding Image}"    
                                          HeightRequest="120" WidthRequest="150"
                                                                                           
-                                           Aspect="AspectFit"
+                                           Aspect="Fill"
                                          />
                                         <StackLayout>
                                             <Label Text="{Binding Title}"
                                              FontSize="Medium"/>
                                             <StackLayout HeightRequest="50">
-                                                <Label FontSize="Micro" Text="{Binding Detail}" LineBreakMode="TailTruncation" MaxLines="4"/>
+                                                <Label FontSize="Micro" Text="{Binding Detail}"
+                                                       LineBreakMode="TailTruncation" MaxLines="4"
+                                                       Margin="0,0,20,0"/>
                                             </StackLayout>
                                             <StackLayout Orientation="Horizontal">
                                                 <Label Text="Exp." TextColor="Red"/>

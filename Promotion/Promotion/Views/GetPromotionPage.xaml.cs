@@ -17,11 +17,20 @@ namespace Promotion.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class GetPromotionPage : ContentPage
 	{
+		private GetPromotionPageViewModel getPromotionPageViewModel;
+		public UpdateCommand Data { get; set; }
 		public GetPromotionPage(UpdateCommand data)
 		{
-			BindingContext = new GetPromotionPageViewModel(data);
+			Data = data;
+			getPromotionPageViewModel = new GetPromotionPageViewModel(data);
+			BindingContext = getPromotionPageViewModel;
 			InitializeComponent();				
 		}
-		
+		protected override void OnAppearing()
+		{
+			base.OnAppearing();
+			getPromotionPageViewModel.GetDetailPromotion(Data);
+		}
+
 	}
 }

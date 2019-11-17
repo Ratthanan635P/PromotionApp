@@ -43,7 +43,7 @@ namespace Promotion.ViewModels
 				if (value != expireDate)
 				{
 					expireDate = value;
-					PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("DetailPromotion"));
+					PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ExpireDate"));
 				}
 			}
 		}
@@ -77,8 +77,6 @@ namespace Promotion.ViewModels
 			BackPageCommand = new Command(BackPage);
 			GetCodeCommand = new Command(GetCodePopUp);
 		}
-
-
 		public async void GetCodePopUp()
 		{
 			History = true;
@@ -130,8 +128,8 @@ namespace Promotion.ViewModels
 		}
 		public async void BackPage()
 		{
-			//App.Current.MainPage.Navigation.PushAsync( new HomePage(UpdateData.UserId));
-			await App.Current.MainPage.Navigation.PopAsync();
+			await App.Current.MainPage.Navigation.PushAsync( new HomePage(UpdateData.UserId));
+		//	await App.Current.MainPage.Navigation.PopAsync();
 		}	
 	}
 }

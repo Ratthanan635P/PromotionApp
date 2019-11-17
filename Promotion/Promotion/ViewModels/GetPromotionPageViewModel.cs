@@ -41,7 +41,23 @@ namespace Promotion.ViewModels
 				if (value != expireDate)
 				{
 					expireDate = value;
-					PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("DetailPromotion"));
+					PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ExpireDate"));
+				}
+			}
+		}
+		private string title;
+		public string Title
+		{
+			get
+			{
+				return title;
+			}
+			set
+			{
+				if (value != title)
+				{
+					title = value;
+					PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Title"));
 				}
 			}
 		}
@@ -79,6 +95,7 @@ namespace Promotion.ViewModels
 					DetailPromotion = JsonConvert.DeserializeObject<DetailPromotionModel>(stringContent);
 					DetailPromotion.ExpireDate = DetailPromotion.Expire.ToString("dd/MM/yyyy");
 					ExpireDate = DetailPromotion.ExpireDate;
+					Title = DetailPromotion.Title;
 					if (DetailPromotion.History == true)
 					{
 						//CmdGetCodePromotion.IsEnabled = false;
